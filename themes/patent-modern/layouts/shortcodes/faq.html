@@ -6,6 +6,6 @@
     </svg>
   </button>
   <div class="faq-answer" x-show="open" x-transition>
-    {{ .Inner | markdownify }}
+    {{ with .Get "answer" }}{{ . | markdownify }}{{ else }}{{ .Inner | markdownify }}{{ end }}
   </div>
 </div>
