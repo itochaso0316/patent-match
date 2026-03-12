@@ -5,7 +5,6 @@ resources/
 
 # Node
 node_modules/
-themes/patent-modern/static/css/style.css
 
 # Python
 __pycache__/
