@@ -2,7 +2,7 @@
 # データリクエスト: 大学TLO技術移転実績データ
 # ============================================================
 id: "REQ-20260313-009"
-status: "pending"
+status: "completed"
 priority: "medium"
 requested_by: "cowork"
 requested_at: "2026-03-13T10:00:00+09:00"

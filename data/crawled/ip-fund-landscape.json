@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "request_id": "REQ-20260313-008",
+    "crawled_at": "2026-03-13T00:27:54+09:00",
+    "sources": [],
+    "notes": ""
+  },
+  "data": {
+    "ipbridge": "[ERROR: HTTPSConnectionPool(host='www.ipbridge.co.jp', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.ipbridge.co.jp', port=443): Failed to resolve 'www.ipbridge.co.jp' ([Errno 8] nodename nor servname provided, or not known)\"))]",
+    "jpo_ip_finance": "お探しのページが見つかりません | 経済産業省 特許庁(Japan Patent Office)\n本文へスキップします。\n特許庁\n文字の大きさ\nEnglish\n投書箱（ご意見・ご要望)\nホームページの使い方\nアクセスマップ\nメニュー\nコンテンツメニュー\nここから本文です。\nお探しのページが見つかりません\nページが見つかりませんでした\nアクセスしていただいたページは、削除もしくは移動した可能性があります。\nお手数をおかけしますが、トップページまたはページ上部のナビゲーションメニューからお探しいただくか、ページ上部のサイト内検索をご利用ください。\n特許庁ウェブサイトトップページ\nお探しのページが国立国会図書館の「インターネット資料収集保存事業（Web Archiving Project）」ホームページに保存されている場合があります。\n次のページの「絞込/再検索」で、お探しのページのURL、またはタイトルなどから検索できます。\nインターネット資料収集保存事業（Web Archiving Project）」ホームページ（外部サイトへリンク）\n関連リンク\nホームページの使い方\n「お探しのページが見つかりません」のエラーが表示される場合の対処\nPage Not Found\nThe page may have been moved or deleted.\nPlease go to our homepage, search from dropdown navigation menu, or use our site search. We apologize for the inconvenience.\nJapan Patent Office Homepage\nArchived version of the page may be found in Web Archiving Project (WARP).\nWeb Archiving Project (External link)\nRelated link\nHow to use JPO \r\n\t\t\t\twebsite\nこのページの先頭へ\n知的財産権関連リンク集\nサイトマップ\nプライバシーポリシー\nこのサイトについて\n(法人番号　2000012090003)\n住所：〒100-8915  東京都千代田区霞が関3丁目4番3号　電話番号：03-3581-1101（代表）\nCopyright © Japan Patent office. All Rights Reserved."
+  }
+}

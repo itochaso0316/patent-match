@@ -2,7 +2,7 @@
 # データリクエスト: スタートアップ向け特許費用減免制度の最新情報
 # ============================================================
 id: "REQ-20260313-005"
-status: "pending"
+status: "completed"
 priority: "medium"
 requested_by: "cowork"
 requested_at: "2026-03-13T10:00:00+09:00"

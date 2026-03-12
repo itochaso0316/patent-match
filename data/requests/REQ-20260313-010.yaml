@@ -2,7 +2,7 @@
 # データリクエスト: 中国特許の最新統計・日本企業の出願動向
 # ============================================================
 id: "REQ-20260313-010"
-status: "pending"
+status: "completed"
 priority: "low"
 requested_by: "cowork"
 requested_at: "2026-03-13T10:00:00+09:00"
