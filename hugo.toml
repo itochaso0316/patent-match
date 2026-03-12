@@ -2,24 +2,60 @@ baseURL = "https://patent-match.jp"
 title = "PatentMatch.jp | 特許活用・ライセンス・マッチング情報"
 languageCode = "ja"
 defaultContentLanguage = "ja"
-theme = "ananke"
+theme = "patent-modern"
 enableRobotsTXT = true
 enableEmoji = true
 buildFuture = true
 
+[build]
+  [build.buildStats]
+    enable = true
+
 [pagination]
-  pagerSize = 10
+  pagerSize = 12
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
 
 [params]
   description = "眠っている特許を収益に。特許ライセンス・売却・マッチングの実践情報を日本語で。中小企業・研究者・起業家向け。"
   author = "PatentMatch編集部"
   favicon = "/favicon.ico"
-  site_logo = ""
-  background_color_class = "bg-near-white"
-  body_classes = "avenir bg-near-white"
-  post_content_classes = "avenir"
-  featured_image = "/images/patent-hero.jpg"
-  recent_posts_number = 5
+  ogImage = "/images/og-default.jpg"
+  dateFormat = "2006年1月2日"
+
+  # セクション情報（テンプレートで使用）
+  [params.sections]
+    [params.sections.guide]
+      title = "特許活用ガイド"
+      description = "特許の基礎知識から実践的な活用方法まで。中小企業向けにわかりやすく解説します。"
+      icon = "book-open"
+    [params.sections.license]
+      title = "ライセンス実務"
+      description = "特許ライセンス契約の締結から収益化まで。専門的な実務知識を提供します。"
+      icon = "file-text"
+    [params.sections.sell]
+      title = "特許売却・譲渡"
+      description = "特許権の売却・譲渡に関する相場、手続き、注意点を網羅的に解説。"
+      icon = "trending-up"
+    [params.sections.matching]
+      title = "マッチング"
+      description = "特許を持つ企業と活用したい企業をつなぐ。マッチングサービスや戦略を紹介。"
+      icon = "link"
+    [params.sections.tools]
+      title = "調査ツール"
+      description = "J-PlatPat、Espacenet等の特許調査ツールの使い方を徹底ガイド。"
+      icon = "search"
+    [params.sections.agents]
+      title = "エージェント"
+      description = "弁理士・知財コンサルタント等、特許活用の専門家を見つける方法。"
+      icon = "users"
 
 [taxonomies]
   tag = "tags"
@@ -50,3 +86,11 @@ buildFuture = true
     name = "エージェント"
     url = "/agents/"
     weight = 6
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[outputFormats]
+  [outputFormats.JSON]
+    mediaType = "application/json"
+    baseName = "index"

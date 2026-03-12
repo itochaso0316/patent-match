@@ -1,0 +1,90 @@
+{{ define "main" }}
+
+{{ partial "breadcrumb" . }}
+
+<article class="py-8 sm:py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Article Header -->
+    <header class="max-w-3xl mx-auto lg:mx-0 lg:max-w-none mb-10">
+      <div class="max-w-3xl">
+        {{ $sectionTitle := "" }}
+        {{ with index .Site.Params.sections .Section }}
+          {{ $sectionTitle = .title }}
+        {{ end }}
+        {{ if $sectionTitle }}
+        <a href="/{{ .Section }}/" class="article-card-category mb-4 inline-block hover:bg-patent-blue-100 transition-colors">
+          {{ $sectionTitle }}
+        </a>
+        {{ end }}
+
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-gray-900 leading-tight mb-4">
+          {{ .Title }}
+        </h1>
+
+        <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+          <time datetime="{{ .Date.Format "2006-01-02" }}" class="flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            {{ .Date.Format "2006年1月2日" }}
+          </time>
+          <span class="flex items-center gap-1.5 reading-time">
+            約{{ math.Round (div (countwords .Content) 400.0) }}分で読める
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content + TOC Layout -->
+    <div class="lg:grid lg:grid-cols-[1fr_280px] lg:gap-12">
+
+      <!-- Main Content -->
+      <div class="min-w-0">
+        <div class="prose prose-lg max-w-none
+                    prose-headings:font-serif prose-headings:text-gray-900
+                    prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-gray-200
+                    prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
+                    prose-p:text-body-ja prose-p:text-gray-700
+                    prose-a:text-patent-blue-600 prose-a:no-underline hover:prose-a:underline
+                    prose-strong:text-gray-900
+                    prose-table:text-sm
+                    prose-th:bg-patent-blue-50 prose-th:text-patent-blue-800
+                    prose-img:rounded-lg prose-img:shadow-sm">
+          {{ .Content }}
+        </div>
+
+        <!-- Tags -->
+        {{ with .Params.tags }}
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">タグ</h3>
+          <div class="flex flex-wrap gap-2">
+            {{ range . }}
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/" class="tag-pill">{{ . }}</a>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+
+      <!-- Sidebar TOC (Desktop) -->
+      <aside class="hidden lg:block">
+        {{ partial "toc" . }}
+      </aside>
+
+    </div>
+  </div>
+</article>
+
+<!-- Related Articles -->
+{{ partial "related-articles" . }}
+
+<!-- CTA -->
+{{ partial "cta-section" (dict
+  "heading" "他の記事も読んでみませんか？"
+  "text" "PatentMatch.jpでは、特許活用に関する実践的な情報を多数掲載しています。"
+  "primaryUrl" (printf "/%s/" .Section)
+  "primaryText" (printf "%sの記事をもっと見る" (index .Site.Params.sections .Section).title)
+) }}
+
+{{ end }}

@@ -1,0 +1,217 @@
+# ============================================================
+# PatentMatch.jp — itochaso-contentproducer-agents 設定ファイル
+# ============================================================
+# Hugo + Cloudflare Pages + OpenClaw 連携用にカスタマイズ済み
+# ============================================================
+
+# --- クライアント基本情報 ---
+client:
+  name: "PatentMatch.jp"
+  name_short: "PatentMatch"
+  id: "patent-match"
+  domain: "patent-match.jp"
+  industry: "media"
+  specialty: "patent-licensing"
+  area:
+    primary_city: ""
+    prefecture: ""
+    neighboring: []
+  description: "眠っている特許を収益に。特許ライセンス・売却・マッチングの実践情報を日本語で。"
+
+# --- ブランド設定 ---
+brand:
+  owner_name: "PatentMatch編集部"
+  owner_title: "編集長"
+  founding_year: 2026
+  philosophy: "日本の休眠特許を収益化し、イノベーションを加速する"
+  differentiators:
+    - "特許活用に特化した日本語メディア"
+    - "中小企業・研究者・起業家目線の実践情報"
+    - "特許庁公式データに基づく正確な解説"
+    - "AIによるデータ駆動型コンテンツ制作"
+  tone: "authoritative-approachable"  # 専門的だが親しみやすい
+  content_order: ["expertise", "evidence", "emotion", "seo"]
+
+# --- サイト設定（Hugo — WordPress設定に代わる） ---
+site:
+  framework: "hugo"
+  theme_name: "patent-modern"
+  theme_path: "themes/patent-modern/"
+  content_path: "content/"
+  data_path: "data/"
+  static_path: "themes/patent-modern/static/"
+  base_url: "https://patent-match.jp"
+
+  sections:
+    - id: "guide"
+      title: "特許活用ガイド"
+      path: "content/guide/"
+    - id: "license"
+      title: "ライセンス実務"
+      path: "content/license/"
+    - id: "sell"
+      title: "特許売却・譲渡"
+      path: "content/sell/"
+    - id: "matching"
+      title: "マッチング"
+      path: "content/matching/"
+    - id: "tools"
+      title: "調査ツール"
+      path: "content/tools/"
+    - id: "agents"
+      title: "エージェント"
+      path: "content/agents/"
+
+  frontmatter:
+    required: ["title", "date", "description", "categories"]
+    optional: ["tags", "image", "image_alt", "draft", "weight", "source"]
+    date_format: "2006-01-02"
+
+# --- SEO/LLMEO 設定 ---
+seo:
+  target_keywords:
+    tier1:
+      - keyword: "特許活用"
+        current_page: /guide/
+        intent: "特許の実践的な活用方法を知りたい"
+      - keyword: "特許ライセンス"
+        current_page: /license/
+        intent: "ライセンス契約の方法を知りたい"
+      - keyword: "休眠特許"
+        current_page: /guide/
+        intent: "使われていない特許の収益化方法"
+    tier2:
+      - keyword: "特許売却 相場"
+        current_page: /sell/
+      - keyword: "特許マッチング"
+        current_page: /matching/
+    tier3: []
+
+  competitors:
+    - domain: "tokkyo.ai"
+      name: "特許AI"
+      category: ["特許検索"]
+    - domain: "ipbase.go.jp"
+      name: "IP BASE"
+      category: ["知財支援"]
+
+  analysis:
+    quickwin_range: [11, 20]
+    max_kd_priority: 40
+    min_volume: 50
+    rank_drop_alert: 5
+    rank_rise_note: 3
+
+# --- デプロイ設定（Git + Cloudflare Pages） ---
+deploy:
+  mode: "semi-auto"
+  framework: "hugo-cloudflare-pages"
+
+  git:
+    main_branch: "main"
+    content_branch_prefix: "content/"
+    design_branch_prefix: "design/"
+    commit_prefix:
+      content: "content:"
+      design: "design:"
+      fix: "fix:"
+      feat: "feat:"
+
+  cloudflare:
+    project_name: "patent-match"
+    preview_domain: "patent-match.pages.dev"
+
+  build:
+    command: "npm run build"
+    output_directory: "public"
+
+  approval_required:
+    client: false
+    technical: true
+
+# --- OpenClaw 連携（Mac mini） ---
+openclaw:
+  enabled: true
+  role: "data-crawler"
+  sync_method: "git"
+  description: "Mac mini上で動作。特許データのクロール・記事提案をGit経由で同期"
+  workflow:
+    - "OpenClawがcontent/配下にMarkdownをcommit (draft: true)"
+    - "content/*ブランチにpush"
+    - "GitHub ActionsでHugoビルドチェック"
+    - "PRレビュー → main merge → 自動デプロイ"
+  content_rules:
+    default_draft: true
+    branch_prefix: "content/"
+
+# --- Slack連携設定 ---
+slack:
+  enabled: false  # 後で有効化
+  channels:
+    feedback: ""
+    deploy: ""
+    seo_content: ""
+    data_ingest: ""
+
+# --- 品質管理設定 ---
+quality:
+  cqg_enabled: true
+  min_score_for_deploy: 70
+  min_rank: "B"
+  scoring_weights:
+    content_depth: 35
+    seo_eeat: 30
+    uniqueness: 20
+    accuracy: 15
+
+# --- 行政情報モニタリング ---
+government_monitor:
+  enabled: true
+  scope:
+    national: true
+  categories:
+    - "patent-law"
+    - "ip-policy"
+    - "subsidy"
+  schedule: "0 9 1 * *"
+
+# --- SEOコンテンツ提案 ---
+seo_proposer:
+  enabled: true
+  daily_max: 3
+  min_score: 40
+  auto_create: false
+  schedule: "0 9 * * 1"  # 週1回（月曜）に変更
+
+# --- データ取り込み ---
+data_ingest:
+  enabled: true
+  source: "openclaw"  # OpenClawからのデータ
+  categories:
+    - patent-data
+    - trend-analysis
+    - competitor-content
+  schedule: "0 9 * * *"
+
+# --- HTML/CSS ルール ---
+html_css:
+  framework: "hugo-tailwind"
+  tailwind_config: "tailwind.config.js"
+  theme_path: "themes/patent-modern/"
+  inline_styles: false
+  heading_hierarchy: true
+  image_alt_required: true
+  internal_links: "relative"
+  button_classes: ["btn-primary", "btn-secondary", "btn-outline"]
+
+# --- スケジュールタスク一覧 ---
+scheduled_tasks:
+  - id: "openclaw-sync-check"
+    cron: "0 8 * * *"
+    description: "OpenClawデータ同期チェック（毎朝8時）"
+  - id: "seo-content-proposer"
+    cron: "0 9 * * 1"
+    description: "週間SEOコンテンツ提案（月曜9時）"
+  - id: "government-policy-monitor"
+    cron: "0 9 1 * *"
+    description: "月次の特許法・知財政策モニタリング"

@@ -1,0 +1,39 @@
+{{ define "main" }}
+
+<section class="py-12 sm:py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-10">
+      <h1 class="text-3xl font-serif font-bold text-gray-900 mb-2">{{ .Title }}</h1>
+      {{ with .Description }}
+      <p class="text-lg text-gray-500">{{ . }}</p>
+      {{ end }}
+    </div>
+
+    {{ if .RegularPages }}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range .RegularPages.ByDate.Reverse }}
+        {{ partial "article-card" . }}
+      {{ end }}
+    </div>
+    {{ else if .Pages }}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range .Pages }}
+        {{ if .IsSection }}
+        {{ $sectionInfo := index $.Site.Params.sections .Section }}
+        <a href="{{ .Permalink }}" class="section-card">
+          <h3 class="text-lg font-serif font-bold text-gray-900 mb-2">
+            {{ with $sectionInfo }}{{ .title }}{{ else }}{{ .Title }}{{ end }}
+          </h3>
+          <p class="text-sm text-gray-500">{{ with $sectionInfo }}{{ .description }}{{ end }}</p>
+          <p class="mt-3 text-sm text-patent-blue-600 font-medium">{{ len .RegularPages }}件の記事</p>
+        </a>
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ template "_internal/pagination.html" . }}
+  </div>
+</section>
+
+{{ end }}

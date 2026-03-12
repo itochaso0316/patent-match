@@ -1,0 +1,78 @@
+name: Hugo Build Check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'content/**'
+      - 'themes/**'
+      - 'hugo.toml'
+      - 'data/**'
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Tailwind CSS
+        run: npm run css:build
+
+      - name: Build Hugo
+        run: hugo --minify
+        env:
+          HUGO_ENVIRONMENT: production
+
+      - name: Check for build errors
+        run: |
+          echo "Build completed successfully"
+          echo "Pages generated: $(find public -name '*.html' | wc -l)"
+          echo "Total size: $(du -sh public | cut -f1)"
+
+  # OpenClaw content validation
+  validate-content:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate frontmatter
+        run: |
+          echo "Checking content files for valid frontmatter..."
+          errors=0
+          for f in $(find content -name "*.md" -not -name "_index.md"); do
+            # Check for required frontmatter fields
+            if ! head -50 "$f" | grep -q "^title:"; then
+              echo "ERROR: Missing title in $f"
+              errors=$((errors + 1))
+            fi
+            if ! head -50 "$f" | grep -q "^date:"; then
+              echo "ERROR: Missing date in $f"
+              errors=$((errors + 1))
+            fi
+            if ! head -50 "$f" | grep -q "^description:"; then
+              echo "WARNING: Missing description in $f"
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "Found $errors errors in content files"
+            exit 1
+          fi
+          echo "All content files valid!"

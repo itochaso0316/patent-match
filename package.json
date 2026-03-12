@@ -1,14 +1,20 @@
 {
   "name": "patent-match",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "PatentMatch.jp - 特許活用・ライセンス・マッチング情報メディア",
   "scripts": {
-    "build": "hugo --minify",
-    "serve": "hugo server -D",
-    "deploy": "hugo --minify && wrangler deploy",
+    "dev": "hugo server -D --bind 0.0.0.0",
+    "build": "npm run css:build && hugo --minify",
+    "css:build": "npx tailwindcss -i ./themes/patent-modern/assets/css/main.css -o ./themes/patent-modern/static/css/style.css --minify",
+    "css:watch": "npx tailwindcss -i ./themes/patent-modern/assets/css/main.css -o ./themes/patent-modern/static/css/style.css --watch",
+    "deploy": "npm run build && wrangler deploy",
     "generate": "cd scripts && python3 generate_articles.py"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19",
     "wrangler": "^3.0.0"
   }
 }

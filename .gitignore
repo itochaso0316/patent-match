@@ -1,9 +1,28 @@
-.env
+# Hugo
 public/
 resources/
 .hugo_build.lock
+
+# Node
+node_modules/
+themes/patent-modern/static/css/style.css
+
+# Python
 __pycache__/
 *.pyc
-.DS_Store
+
+# Secrets
+.env
 scripts/cost_tracker.json
 service-account.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Wrangler
+.wrangler/
+
+# Editor
+.vscode/
+.idea/

@@ -1,0 +1,124 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<section class="hero py-20 sm:py-28 lg:py-36">
+  <div class="hero-overlay"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-patent-gold-400 font-semibold text-sm uppercase tracking-widest mb-4 fade-in">Patent Licensing & Matching</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-white leading-tight mb-6 fade-in">
+      眠っている特許を、<br class="hidden sm:inline">収益に変える
+    </h1>
+    <p class="text-lg sm:text-xl text-patent-blue-200 max-w-2xl mx-auto mb-10 fade-in">
+      特許ライセンス・売却・マッチングの実践情報を日本語で。<br class="hidden sm:inline">
+      中小企業・研究者・起業家のための知財メディア。
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in">
+      <a href="/guide/" class="btn-primary text-base px-8 py-4">
+        特許活用ガイドを読む
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+      <a href="/matching/" class="btn-secondary text-base px-8 py-4">
+        マッチングを探す
+      </a>
+    </div>
+  </div>
+
+  <!-- Decorative gradient -->
+  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+</section>
+
+<!-- Section Cards -->
+<section class="py-16 sm:py-20 -mt-12 relative z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <p class="text-patent-blue-500 font-semibold text-sm uppercase tracking-widest mb-2">Categories</p>
+      <h2 class="text-2xl sm:text-3xl font-serif font-bold text-gray-900">テーマから探す</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range $key, $section := .Site.Params.sections }}
+      <a href="/{{ $key }}/" class="section-card">
+        <div class="section-card-icon">
+          {{ if eq $section.icon "book-open" }}
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+          {{ else if eq $section.icon "file-text" }}
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          {{ else if eq $section.icon "trending-up" }}
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+          {{ else if eq $section.icon "link" }}
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+          {{ else if eq $section.icon "search" }}
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          {{ else if eq $section.icon "users" }}
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+          {{ end }}
+        </div>
+        <h3 class="text-lg font-serif font-bold text-gray-900 mb-2">{{ $section.title }}</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">{{ $section.description }}</p>
+        <div class="mt-4 text-patent-blue-600 text-sm font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+          記事を見る
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Latest Articles -->
+<section class="py-16 sm:py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <p class="text-patent-blue-500 font-semibold text-sm uppercase tracking-widest mb-2">Latest Articles</p>
+        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-gray-900">最新の記事</h2>
+      </div>
+      <a href="/categories/" class="hidden sm:inline-flex btn-outline text-sm">
+        すべて見る
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range first 6 .Site.RegularPages.ByDate.Reverse }}
+        {{ partial "article-card" . }}
+      {{ end }}
+    </div>
+
+    <div class="mt-8 text-center sm:hidden">
+      <a href="/categories/" class="btn-outline">すべての記事を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-16 sm:py-20">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-3xl sm:text-4xl font-bold text-patent-blue-600">{{ len .Site.RegularPages }}</p>
+        <p class="text-sm text-gray-500 mt-1">記事数</p>
+      </div>
+      <div>
+        <p class="text-3xl sm:text-4xl font-bold text-patent-blue-600">6</p>
+        <p class="text-sm text-gray-500 mt-1">カテゴリ</p>
+      </div>
+      <div>
+        <p class="text-3xl sm:text-4xl font-bold text-patent-blue-600">{{ len .Site.Taxonomies.tags }}</p>
+        <p class="text-sm text-gray-500 mt-1">タグ数</p>
+      </div>
+      <div>
+        <p class="text-3xl sm:text-4xl font-bold text-patent-blue-600">無料</p>
+        <p class="text-sm text-gray-500 mt-1">すべてのコンテンツ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

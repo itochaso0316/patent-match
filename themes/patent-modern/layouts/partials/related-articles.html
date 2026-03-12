@@ -1,0 +1,13 @@
+{{ $related := first 3 (where (.Site.RegularPages.Related .) "Section" .Section) }}
+{{ if $related }}
+<section class="py-12 sm:py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-serif font-bold text-gray-900 mb-8">関連記事</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {{ range $related }}
+        {{ partial "article-card" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

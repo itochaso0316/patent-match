@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap');
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans text-gray-800 bg-white;
+    font-feature-settings: "palt";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    @apply bg-patent-gold-100 text-patent-blue-800;
+  }
+}
+
+@layer components {
+  /* Hero section */
+  .hero {
+    @apply relative overflow-hidden bg-gradient-to-br from-patent-blue-700 via-patent-blue-600 to-patent-blue-800;
+  }
+
+  .hero-overlay {
+    @apply absolute inset-0 bg-black/20;
+  }
+
+  /* Section backgrounds (alternating) */
+  .section-white { @apply bg-white; }
+  .section-light { @apply bg-gray-50; }
+  .section-accent { @apply bg-patent-blue-50; }
+
+  /* Article card */
+  .article-card {
+    @apply bg-white rounded-xl border border-gray-100 overflow-hidden
+           transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .article-card-body {
+    @apply p-5 sm:p-6;
+  }
+
+  .article-card-category {
+    @apply inline-block text-xs font-semibold uppercase tracking-wider
+           text-patent-blue-600 bg-patent-blue-50 px-2.5 py-1 rounded-full;
+  }
+
+  .article-card-title {
+    @apply text-lg font-serif font-semibold text-gray-900 mt-3
+           line-clamp-2 transition-colors;
+  }
+
+  .group:hover .article-card-title {
+    @apply text-patent-blue-600;
+  }
+
+  .article-card-excerpt {
+    @apply text-sm text-gray-500 mt-2 line-clamp-2;
+  }
+
+  .article-card-meta {
+    @apply flex items-center justify-between mt-4 pt-4 border-t border-gray-100 text-xs text-gray-400;
+  }
+
+  /* CTA section */
+  .cta-section {
+    @apply bg-gradient-to-r from-patent-blue-700 to-patent-blue-600 text-white py-16 sm:py-20;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    @apply flex items-center gap-2 text-sm text-gray-500 py-4;
+  }
+
+  .breadcrumb a {
+    @apply hover:text-patent-blue-600 transition-colors;
+  }
+
+  .breadcrumb-separator {
+    @apply text-gray-300;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-patent-gold-400 text-patent-blue-800
+           font-semibold rounded-lg hover:bg-patent-gold-300 transition-all duration-200
+           shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-white text-white
+           font-semibold rounded-lg hover:bg-white hover:text-patent-blue-700
+           transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 border border-patent-blue-600
+           text-patent-blue-600 font-medium rounded-lg hover:bg-patent-blue-600
+           hover:text-white transition-all duration-200;
+  }
+
+  /* TOC */
+  .toc {
+    @apply border-l-2 border-patent-blue-200 pl-4;
+  }
+
+  .toc a {
+    @apply block py-1.5 text-sm text-gray-500 hover:text-patent-blue-600
+           transition-colors border-l-2 border-transparent -ml-[18px] pl-4;
+  }
+
+  .toc a.active {
+    @apply text-patent-blue-600 font-medium border-patent-blue-600;
+  }
+
+  /* Section card (homepage) */
+  .section-card {
+    @apply relative p-6 bg-white rounded-xl border border-gray-100
+           hover:border-patent-blue-200 transition-all duration-300
+           hover:shadow-md;
+  }
+
+  .section-card-icon {
+    @apply w-12 h-12 flex items-center justify-center rounded-lg
+           bg-patent-blue-50 text-patent-blue-600 mb-4
+           transition-all duration-300;
+  }
+
+  .group:hover .section-card-icon,
+  .section-card:hover .section-card-icon {
+    @apply bg-patent-blue-600 text-white;
+  }
+
+  /* Tag pills */
+  .tag-pill {
+    @apply inline-block text-xs px-2.5 py-1 bg-gray-100 text-gray-600
+           rounded-full hover:bg-patent-blue-50 hover:text-patent-blue-600
+           transition-colors;
+  }
+
+  /* FAQ accordion */
+  .faq-item {
+    @apply border-b border-gray-200;
+  }
+
+  .faq-question {
+    @apply flex items-center justify-between w-full py-5 text-left
+           font-semibold text-gray-900 hover:text-patent-blue-600
+           transition-colors cursor-pointer;
+  }
+
+  .faq-answer {
+    @apply pb-5 text-gray-600 leading-relaxed;
+  }
+
+  /* Callout box */
+  .callout {
+    @apply relative pl-6 py-4 pr-4 my-8 rounded-r-lg border-l-4;
+  }
+
+  .callout-info {
+    @apply bg-blue-50 border-blue-400;
+  }
+
+  .callout-warning {
+    @apply bg-amber-50 border-amber-400;
+  }
+
+  .callout-tip {
+    @apply bg-emerald-50 border-emerald-400;
+  }
+}
+
+@layer utilities {
+  /* Reading time */
+  .reading-time::before {
+    content: '';
+    @apply inline-block w-4 h-4 mr-1 bg-current opacity-60;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 6v6l4 2'/%3E%3C/svg%3E") no-repeat center;
+  }
+
+  /* Fade in animation */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Line clamp for Japanese text */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
