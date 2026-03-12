@@ -1,0 +1,26 @@
+id: "REQ-20260312-003"
+status: "pending"
+priority: "medium"
+requested_by: "cowork"
+requested_at: "2026-03-12T23:30:00+09:00"
+category: "regulation"
+title: "中小企業・スタートアップ向け特許費用減免制度"
+description: |
+  記事「スタートアップのための特許出願ガイド：費用を抑えて権利化する方法」の作成用。
+  特許庁と中小企業庁の減免制度の最新情報を取得。
+targets:
+  - url: "https://www.jpo.go.jp/system/process/tesuryo/genmen/genmen20190401/"
+    scope: "特許料等の減免制度の詳細"
+    extract: ["eligibility", "discount_rates", "application_process", "required_documents"]
+  - url: "https://www.chusho.meti.go.jp/"
+    scope: "中小企業向け知財支援施策"
+    extract: ["support_programs", "subsidy_info", "application_deadlines"]
+  - url: "https://ipbase.go.jp/"
+    scope: "スタートアップ向け知財支援メニュー"
+    extract: ["programs", "eligibility", "benefits"]
+output_format: "json"
+output_path: "data/crawled/patent-fee-reduction-programs.json"
+deadline: "2026-03-16"
+notes: |
+  費用の具体的な金額（出願料、審査請求料、登録料の減免率）が重要。
+  2026年度の制度変更があれば優先的に取得。

@@ -1,0 +1,29 @@
+id: "REQ-20260312-004"
+status: "pending"
+priority: "high"
+requested_by: "cowork"
+requested_at: "2026-03-12T23:30:00+09:00"
+category: "market"
+title: "業界別特許ロイヤリティレート実態調査"
+description: |
+  記事「特許ライセンス料の相場：業界別ロイヤリティレートの実態」の作成用。
+  公開されているロイヤリティレートデータを幅広く収集。
+targets:
+  - url: "https://autm.org/"
+    scope: "AUTM Survey データ（大学のライセンス実績）"
+    extract: ["average_royalty_rates", "by_technology_field", "licensing_revenue"]
+  - url: "https://en.wikipedia.org/wiki/Reasonable_royalty"
+    scope: "一般的なロイヤリティレートの範囲"
+    extract: ["industry_ranges", "calculation_methods"]
+  - scope: "日本の特許ライセンス事例・判例"
+    search_queries:
+      - "特許ロイヤリティレート 相場 日本"
+      - "特許ライセンス料 業界別"
+      - "知財高裁 ロイヤリティ 判例"
+    extract: ["case_studies", "court_decisions", "rate_ranges"]
+output_format: "json"
+output_path: "data/crawled/royalty-rates-by-industry.json"
+deadline: "2026-03-17"
+notes: |
+  業界別（IT/通信、製薬、自動車、素材、食品等）のレートが重要。
+  日本の判例で認定されたレートも記事の信頼性向上に不可欠。

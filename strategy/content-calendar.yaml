@@ -54,9 +54,11 @@ march_2026:
         assigned_to: "cowork"
         priority: "high"
 
-      - title: "2026年注目の特許技術トレンド：AI・量子・バイオの最前線"
+      - title: "2026年注目の特許技術トレンド：AI・バイオ・グリーンテクノロジーの最前線"
         section: "guide"
-        status: "planned"
+        status: "draft"
+        content_path: "content/guide/2026-patent-tech-trends.md"
+        generated_at: "2026-03-12"
         keywords: ["特許トレンド 2026", "AI特許", "量子コンピュータ特許"]
         data_needed:
           - type: "patent-trend"

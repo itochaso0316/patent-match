@@ -1,0 +1,27 @@
+id: "REQ-20260312-002"
+status: "pending"
+priority: "high"
+requested_by: "cowork"
+requested_at: "2026-03-12T23:30:00+09:00"
+category: "patent-data"
+title: "特許庁最新統計データ（2024-2025年）"
+description: |
+  データ駆動型記事「日本の特許出願動向2025-2026」の作成に必要。
+  特許庁の年次報告書・統計資料から以下のデータを取得してほしい。
+targets:
+  - url: "https://www.jpo.go.jp/resources/statistics/"
+    scope: "特許出願件数・登録件数（年次推移 2020-2025）"
+    extract: ["total_applications", "total_registrations", "by_field", "by_applicant_type"]
+  - url: "https://www.jpo.go.jp/resources/report/nenji/"
+    scope: "特許行政年次報告書の主要データ"
+    extract: ["key_statistics", "trend_summary", "international_comparison"]
+  - url: "https://www.jpo.go.jp/resources/statistics/syutugan_toukei_sokuho.html"
+    scope: "出願統計速報（最新月）"
+    extract: ["monthly_data", "year_over_year"]
+output_format: "json"
+output_path: "data/crawled/jpo-statistics-2024-2025.json"
+deadline: "2026-03-15"
+notes: |
+  記事「2026年注目の特許技術トレンド」と
+  「【データで見る】日本の特許出願動向2025-2026」の両方で使用。
+  グラフ作成用にきれいな数値データが必要。

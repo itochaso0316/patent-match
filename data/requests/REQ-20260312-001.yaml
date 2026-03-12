@@ -1,0 +1,33 @@
+# ============================================================
+# データリクエスト: 競合サイトのコンテンツ構成分析
+# ============================================================
+id: "REQ-20260312-001"
+status: "pending"
+priority: "high"
+requested_by: "cowork"
+requested_at: "2026-03-12T23:30:00+09:00"
+category: "competitor"
+title: "競合サイトのコンテンツ構成分析"
+description: |
+  PatentMatch.jpのSEO戦略立案のため、主要競合サイトのコンテンツを分析してほしい。
+  各サイトのブログ/コラム記事のタイトル・URL・見出し構成（H2/H3）・推定文字数を取得。
+  特に「特許活用」「特許ライセンス」「休眠特許」関連の記事を優先的に。
+targets:
+  - url: "https://tokkyo.ai"
+    scope: "ブログ・コラム記事一覧（全件または最新30件）"
+    extract: ["title", "url", "h2_headings", "h3_headings", "estimated_word_count", "publish_date"]
+  - url: "https://ipbase.go.jp/learn/"
+    scope: "学ぶ セクションの記事一覧"
+    extract: ["title", "url", "h2_headings", "category", "publish_date"]
+  - url: "https://chizai-times.com/"
+    scope: "最新記事30件"
+    extract: ["title", "url", "category", "publish_date"]
+  - url: "https://ipforce.jp/"
+    scope: "コラム・ニュースセクション"
+    extract: ["title", "url", "category"]
+output_format: "json"
+output_path: "data/crawled/competitor-content-analysis.json"
+deadline: "2026-03-14"
+notes: |
+  SEOコンテンツ戦略の立案に使用。
+  競合がカバーしていてPatentMatchが未カバーのトピック（コンテンツギャップ）を特定する。
