@@ -1,0 +1,142 @@
+[
+  {
+    "publication_number": "JP-7755054-B2",
+    "title": "基地局装置による端末装置に対する人工知能および／または機械学習の開始の指示",
+    "abstract": null,
+    "filing_date": 20220418,
+    "grant_date": 20251015
+  },
+  {
+    "publication_number": "JP-7754822-B2",
+    "title": "人工知能ベースのベースコーラの知識蒸留及び勾配プルーニングに基づく圧縮",
+    "abstract": null,
+    "filing_date": 20210217,
+    "grant_date": 20251015
+  },
+  {
+    "publication_number": "JP-7754599-B2",
+    "title": "機械学習モデルにおける敵対的サンプルに対する動的勾配策略",
+    "abstract": null,
+    "filing_date": 20211122,
+    "grant_date": 20251015
+  },
+  {
+    "publication_number": "JP-7753781-B2",
+    "title": "機械学習プログラム、機械学習方法および情報処理装置",
+    "abstract": null,
+    "filing_date": 20211013,
+    "grant_date": 20251015
+  },
+  {
+    "publication_number": "JP-7753910-B2",
+    "title": "機械学習方法",
+    "abstract": null,
+    "filing_date": 20220207,
+    "grant_date": 20251015
+  },
+  {
+    "publication_number": "JP-7754795-B2",
+    "title": "製品性能のコンピュータによる機械学習処理方式及び予測方法並びに原料のコンピュータによる配合提示方法",
+    "abstract": null,
+    "filing_date": 20221228,
+    "grant_date": 20251015
+  },
+  {
+    "publication_number": "JP-7753211-B2",
+    "title": "機械学習モデル及び波面分析に基づく視力品質評価",
+    "abstract": null,
+    "filing_date": 20201218,
+    "grant_date": 20251014
+  },
+  {
+    "publication_number": "JP-7753124-B2",
+    "title": "情報処理装置、推論装置、機械学習装置、情報処理方法、推論方法、及び、機械学習方法",
+    "abstract": null,
+    "filing_date": 20220204,
+    "grant_date": 20251014
+  },
+  {
+    "publication_number": "JP-7752732-B2",
+    "title": "機械学習評価におけるテストパラメータを構成するためのシステム及び方法",
+    "abstract": null,
+    "filing_date": 20240701,
+    "grant_date": 20251010
+  },
+  {
+    "publication_number": "JP-7752637-B2",
+    "title": "リスク及び不確実性の定量化を介する医療超音波画像に対する機械学習予測のゲーティング",
+    "abstract": null,
+    "filing_date": 20210506,
+    "grant_date": 20251010
+  },
+  {
+    "publication_number": "JP-7752639-B2",
+    "title": "機械学習モデルへの適用のための時系列データの変換",
+    "abstract": null,
+    "filing_date": 20210506,
+    "grant_date": 20251010
+  },
+  {
+    "publication_number": "JP-7750674-B2",
+    "title": "デジタルアシスタントのための機械学習システム",
+    "abstract": null,
+    "filing_date": 20210622,
+    "grant_date": 20251007
+  },
+  {
+    "publication_number": "JP-7750629-B2",
+    "title": "機械学習モデルの訓練方法",
+    "abstract": null,
+    "filing_date": 20231019,
+    "grant_date": 20251007
+  },
+  {
+    "publication_number": "JP-7750877-B2",
+    "title": "転移部からの病理データを分析するための機械学習モデル",
+    "abstract": null,
+    "filing_date": 20210601,
+    "grant_date": 20251007
+  },
+  {
+    "publication_number": "JP-7749321-B2",
+    "title": "感情状態に基づいた人工知能の実現を容易にするためのシステムおよび方法",
+    "abstract": null,
+    "filing_date": 20190128,
+    "grant_date": 20251006
+  },
+  {
+    "publication_number": "JP-7748068-B2",
+    "title": "機械学習システム",
+    "abstract": null,
+    "filing_date": 20220901,
+    "grant_date": 20251002
+  },
+  {
+    "publication_number": "JP-7746773-B2",
+    "title": "機械学習装置、機械学習方法、および機械学習プログラム",
+    "abstract": null,
+    "filing_date": 20210928,
+    "grant_date": 20251001
+  },
+  {
+    "publication_number": "JP-7747205-B2",
+    "title": "データ生成装置、データ生成方法、プログラム、および機械学習システム",
+    "abstract": null,
+    "filing_date": 20220614,
+    "grant_date": 20251001
+  },
+  {
+    "publication_number": "JP-7747643-B2",
+    "title": "人工知能ベースの多対多ベースコール",
+    "abstract": null,
+    "filing_date": 20210219,
+    "grant_date": 20251001
+  },
+  {
+    "publication_number": "JP-7747670-B2",
+    "title": "表面提示ペプチドを予測するための機械学習技術",
+    "abstract": null,
+    "filing_date": 20210617,
+    "grant_date": 20251001
+  }
+]

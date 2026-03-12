@@ -5,14 +5,8 @@
   "assets": {
     "directory": "public"
   },
-  "routes": [
-    {
-      "pattern": "patent-match.jp/*",
-      "zone_name": "patent-match.jp"
-    },
-    {
-      "pattern": "www.patent-match.jp/*",
-      "zone_name": "patent-match.jp"
-    }
-  ]
+  // "routes": [  // ドメイン取得後に有効化
+  //   { "pattern": "patent-match.jp/*", "zone_name": "patent-match.jp" },
+  //   { "pattern": "www.patent-match.jp/*", "zone_name": "patent-match.jp" }
+  // ]
 }
