@@ -1,0 +1,56 @@
+# REQ-20260313-013: 特許ポートフォリオ戦略データ
+# 記事: "特許ポートフォリオ戦略：中小企業が持つべき特許の数と質"
+
+request_id: "REQ-20260313-013"
+title: "特許ポートフォリオ戦略・中小企業データ"
+created_at: "2026-03-13"
+created_by: "cowork"
+status: "pending"
+priority: "high"
+deadline: "2026-03-20"
+
+target_article:
+  title: "特許ポートフォリオ戦略：中小企業が持つべき特許の数と質"
+  section: "guide"
+  publish_week: "2026-03-16"
+
+data_requirements:
+  - id: "sme-patent-holdings"
+    description: "中小企業の特許保有状況（業種別・規模別）"
+    targets:
+      - url: "https://www.jpo.go.jp/"
+        data: "中小企業の特許出願・保有統計"
+      - url: "https://www.chusho.meti.go.jp/"
+        data: "中小企業白書の知財関連データ"
+      - search: "中小企業 特許 保有数 平均 業種別"
+      - search: "SME patent portfolio statistics Japan"
+    output_fields:
+      - industry
+      - avg_patents_held
+      - filing_rate
+      - utilization_rate
+
+  - id: "portfolio-strategy-frameworks"
+    description: "特許ポートフォリオ戦略の枠組み・ベストプラクティス"
+    targets:
+      - search: "特許ポートフォリオ 戦略 フレームワーク"
+      - search: "patent portfolio strategy framework SME"
+      - search: "特許 質 vs 量 評価基準"
+    output_fields:
+      - framework_name
+      - description
+      - applicable_to
+      - key_metrics
+
+  - id: "patent-cost-roi"
+    description: "特許取得の費用対効果データ"
+    targets:
+      - search: "特許 ROI 費用対効果 中小企業"
+      - search: "patent ROI return on investment"
+    output_fields:
+      - cost_breakdown
+      - revenue_potential
+      - roi_metrics
+      - industry_benchmarks
+
+output_path: "data/crawled/patent-portfolio-sme.json"

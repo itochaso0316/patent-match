@@ -1,0 +1,58 @@
+# REQ-20260313-011: 特許侵害の発見方法・調査手法データ
+# 記事: "特許侵害の発見方法：自社特許が使われていないかチェックする実践テクニック"
+
+request_id: "REQ-20260313-011"
+title: "特許侵害発見・調査手法データ"
+created_at: "2026-03-13"
+created_by: "cowork"
+status: "pending"
+priority: "high"
+deadline: "2026-04-07"
+
+target_article:
+  title: "特許侵害の発見方法：自社特許が使われていないかチェックする実践テクニック"
+  section: "guide"
+  publish_week: "2026-04-14"
+
+data_requirements:
+  - id: "infringement-detection-tools"
+    description: "特許侵害の発見に使えるツール・サービス一覧"
+    targets:
+      - url: "https://www.j-platpat.inpit.go.jp/"
+        data: "J-PlatPatの特許検索機能・活用方法"
+      - url: "https://patents.google.com/"
+        data: "Google Patentsの侵害調査活用法"
+      - search: "特許侵害 調査 ツール サービス 比較"
+      - search: "patent infringement detection tools"
+    output_fields:
+      - tool_name
+      - provider
+      - url
+      - features
+      - pricing
+      - use_case
+
+  - id: "infringement-case-studies"
+    description: "日本の特許侵害訴訟の最近の事例・統計"
+    targets:
+      - url: "https://www.courts.go.jp/"
+        data: "知財高裁の判決統計・最近の特許侵害訴訟件数"
+      - search: "特許侵害訴訟 件数 推移 日本 2024 2025"
+      - search: "特許侵害 損害賠償 判例 最新"
+    output_fields:
+      - annual_cases
+      - average_damages
+      - notable_cases
+      - success_rate
+
+  - id: "infringement-prevention"
+    description: "特許侵害を防ぐためのFTO調査の手順・費用"
+    targets:
+      - search: "FTO調査 手順 費用 自由実施調査"
+      - search: "freedom to operate analysis patent japan"
+    output_fields:
+      - fto_process_steps
+      - typical_cost_range
+      - recommended_timing
+
+output_path: "data/crawled/patent-infringement-detection.json"

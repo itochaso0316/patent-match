@@ -1,0 +1,53 @@
+# REQ-20260313-018: 特許ライセンス契約の実務ガイド
+# 新記事ネタ: "特許ライセンス契約の結び方：テンプレートと注意点"
+
+request_id: "REQ-20260313-018"
+title: "特許ライセンス契約実務データ"
+created_at: "2026-03-13"
+created_by: "cowork"
+status: "pending"
+priority: "medium"
+deadline: "2026-04-07"
+
+target_article:
+  title: "特許ライセンス契約の結び方：テンプレートと注意点"
+  section: "license"
+  publish_week: "2026-05-01"
+
+data_requirements:
+  - id: "license-contract-basics"
+    description: "ライセンス契約の種類・基本条項"
+    targets:
+      - search: "特許ライセンス契約 種類 独占 非独占 通常実施権"
+      - search: "特許 ライセンス 契約書 テンプレート ひな形"
+      - search: "patent license agreement template Japan"
+    output_fields:
+      - license_type
+      - description
+      - typical_terms
+      - pros_cons
+
+  - id: "license-negotiation-data"
+    description: "ライセンス交渉の実態・相場データ"
+    targets:
+      - search: "特許ライセンス 交渉 ポイント 注意点"
+      - search: "ライセンス契約 紛争 事例 トラブル"
+      - url: "https://www.jpo.go.jp/"
+        data: "ライセンス関連ガイドライン"
+    output_fields:
+      - negotiation_point
+      - common_disputes
+      - best_practices
+
+  - id: "license-revenue-models"
+    description: "ロイヤリティ計算モデルの種類・実例"
+    targets:
+      - search: "ロイヤリティ 計算方法 定額 定率 ランニング"
+      - search: "royalty calculation methods patent licensing"
+    output_fields:
+      - model_name
+      - calculation_method
+      - applicable_scenarios
+      - examples
+
+output_path: "data/crawled/patent-license-contract.json"

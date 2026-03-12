@@ -1,0 +1,47 @@
+# REQ-20260313-015: 特許法改正・知財政策最新動向
+# 新記事ネタ: "2026年特許法改正のポイントと実務への影響"
+
+request_id: "REQ-20260313-015"
+title: "2026年特許法改正・知財政策動向"
+created_at: "2026-03-13"
+created_by: "cowork"
+status: "pending"
+priority: "high"
+deadline: "2026-03-25"
+
+target_article:
+  title: "2026年特許法改正のポイントと実務への影響"
+  section: "guide"
+  publish_week: "2026-04-01"
+
+data_requirements:
+  - id: "patent-law-revision-2026"
+    description: "2025-2026年の特許法改正の内容・施行スケジュール"
+    targets:
+      - url: "https://www.jpo.go.jp/system/laws/rule/hokaisei/index.html"
+        data: "法律改正情報ページ"
+      - url: "https://www.kantei.go.jp/jp/singi/titeki2/"
+        data: "知的財産戦略本部の最新会議資料"
+      - search: "特許法 改正 2025 2026 ポイント"
+      - search: "知的財産推進計画 2025"
+    output_fields:
+      - revision_name
+      - effective_date
+      - key_changes
+      - impact_on_applicants
+      - practical_tips
+
+  - id: "ip-policy-trends"
+    description: "政府の知財戦略・スタートアップ支援策"
+    targets:
+      - search: "知財 スタートアップ支援 政府 2026"
+      - search: "特許庁 スタートアップ 施策 2025"
+      - url: "https://www.meti.go.jp/"
+        data: "経産省の知財関連施策"
+    output_fields:
+      - policy_name
+      - target_audience
+      - support_details
+      - application_method
+
+output_path: "data/crawled/patent-law-revision-2026.json"

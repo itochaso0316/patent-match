@@ -1,0 +1,54 @@
+# REQ-20260313-020: 特許出願書類の書き方
+# 新記事ネタ: "特許明細書の書き方入門：初めてでも失敗しない実践ガイド"
+
+request_id: "REQ-20260313-020"
+title: "特許明細書・出願書類の書き方データ"
+created_at: "2026-03-13"
+created_by: "cowork"
+status: "pending"
+priority: "high"
+deadline: "2026-03-25"
+
+target_article:
+  title: "特許明細書の書き方入門：初めてでも失敗しない実践ガイド"
+  section: "guide"
+  publish_week: "2026-04-07"
+
+data_requirements:
+  - id: "patent-document-structure"
+    description: "特許出願書類の構成と各セクションの書き方"
+    targets:
+      - url: "https://www.jpo.go.jp/system/patent/shutugan/index.html"
+        data: "特許出願の手続きページ"
+      - search: "特許明細書 書き方 構成 例"
+      - search: "特許 請求項 書き方 コツ"
+    output_fields:
+      - document_section
+      - purpose
+      - writing_tips
+      - common_mistakes
+
+  - id: "self-filing-resources"
+    description: "個人・中小企業の自力出願に役立つリソース"
+    targets:
+      - search: "特許出願 自分で 個人 やり方"
+      - search: "特許 電子出願 インターネット出願"
+      - url: "https://www.pcinfo.jpo.go.jp/"
+        data: "電子出願ソフトサポートサイト"
+    output_fields:
+      - resource_name
+      - url
+      - description
+      - cost
+
+  - id: "rejection-reasons"
+    description: "拒絶理由通知の主な理由・対応方法"
+    targets:
+      - search: "特許 拒絶理由通知 多い理由 対応"
+      - search: "特許 拒絶査定 割合 統計"
+    output_fields:
+      - rejection_reason
+      - frequency
+      - response_strategy
+
+output_path: "data/crawled/patent-drafting-guide.json"

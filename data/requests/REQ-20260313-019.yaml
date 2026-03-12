@@ -1,0 +1,54 @@
+# REQ-20260313-019: 特許の維持・放棄判断データ
+# 新記事ネタ: "特許の年金管理と放棄判断：コスト最適化の考え方"
+
+request_id: "REQ-20260313-019"
+title: "特許年金・維持管理・放棄判断データ"
+created_at: "2026-03-13"
+created_by: "cowork"
+status: "pending"
+priority: "medium"
+deadline: "2026-04-14"
+
+target_article:
+  title: "特許の年金管理と放棄判断：コスト最適化の考え方"
+  section: "guide"
+  publish_week: "2026-05-07"
+
+data_requirements:
+  - id: "patent-annuity-schedule"
+    description: "特許年金（維持年金）の料金表・年次推移"
+    targets:
+      - url: "https://www.jpo.go.jp/system/process/tesuryo/index.html"
+        data: "特許料金表（年次別）"
+      - search: "特許年金 料金 年次 一覧 2025"
+      - search: "patent annuity fee schedule Japan"
+    output_fields:
+      - year_from_grant
+      - fee_amount
+      - sme_discount
+      - total_20year_cost
+
+  - id: "patent-abandonment-stats"
+    description: "特許の放棄・失効統計"
+    targets:
+      - search: "特許 放棄 失効 件数 統計 日本"
+      - search: "patent abandonment rate Japan statistics"
+      - search: "特許 維持率 年次 推移"
+    output_fields:
+      - year_from_grant
+      - maintenance_rate
+      - abandonment_rate
+      - by_technology_field
+
+  - id: "patent-management-tools"
+    description: "特許管理ツール・サービス比較"
+    targets:
+      - search: "特許管理 ツール ソフト 比較 年金管理"
+      - search: "patent portfolio management software"
+    output_fields:
+      - tool_name
+      - provider
+      - features
+      - pricing
+
+output_path: "data/crawled/patent-annuity-management.json"

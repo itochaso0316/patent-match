@@ -1,0 +1,58 @@
+# REQ-20260313-016: 特許出願から登録までの期間・コスト実態
+# 新記事ネタ: "特許取得にかかる期間と費用の完全ガイド【2026年版】"
+
+request_id: "REQ-20260313-016"
+title: "特許出願→登録の期間・コスト実態データ"
+created_at: "2026-03-13"
+created_by: "cowork"
+status: "pending"
+priority: "high"
+deadline: "2026-03-25"
+
+target_article:
+  title: "特許取得にかかる期間と費用の完全ガイド【2026年版】"
+  section: "guide"
+  publish_week: "2026-04-01"
+
+data_requirements:
+  - id: "filing-to-grant-timeline"
+    description: "特許出願から登録までの平均期間（分野別）"
+    targets:
+      - url: "https://www.jpo.go.jp/"
+        data: "審査の現状・審査期間統計"
+      - search: "特許 審査期間 平均 分野別 2024 2025"
+      - search: "特許出願 登録 期間 どのくらい"
+      - search: "patent prosecution timeline Japan"
+    output_fields:
+      - stage
+      - average_duration
+      - by_technology_field
+      - speedup_options
+
+  - id: "cost-breakdown-detailed"
+    description: "特許取得にかかる全費用の詳細内訳"
+    targets:
+      - url: "https://www.jpo.go.jp/system/process/tesuryo/index.html"
+        data: "特許庁手数料一覧"
+      - search: "特許出願 費用 内訳 弁理士報酬 相場 2025"
+      - search: "特許 弁理士 費用 明細書作成 相場"
+    output_fields:
+      - cost_item
+      - official_fee
+      - attorney_fee_range
+      - notes
+
+  - id: "early-examination"
+    description: "早期審査制度の活用データ"
+    targets:
+      - url: "https://www.jpo.go.jp/"
+        data: "早期審査に関するページ"
+      - search: "早期審査 特許 要件 期間 2025"
+      - search: "スーパー早期審査 特許"
+    output_fields:
+      - program_name
+      - eligibility
+      - average_duration
+      - approval_rate
+
+output_path: "data/crawled/patent-timeline-cost-guide.json"

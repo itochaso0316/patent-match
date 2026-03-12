@@ -1,0 +1,55 @@
+# REQ-20260313-017: 海外特許出願（PCT・各国直接出願）
+# 新記事ネタ: "海外特許出願の完全ガイド：PCT vs 各国直接出願の選び方"
+
+request_id: "REQ-20260313-017"
+title: "海外特許出願・PCT出願データ"
+created_at: "2026-03-13"
+created_by: "cowork"
+status: "pending"
+priority: "medium"
+deadline: "2026-04-07"
+
+target_article:
+  title: "海外特許出願の完全ガイド：PCT vs 各国直接出願の選び方"
+  section: "guide"
+  publish_week: "2026-05-01"
+
+data_requirements:
+  - id: "pct-filing-data"
+    description: "PCT出願の統計・日本からの出願動向"
+    targets:
+      - url: "https://www.wipo.int/pct/en/"
+        data: "PCT出願統計"
+      - search: "PCT出願 日本 件数 推移 2024 2025"
+      - search: "日本企業 PCT出願 ランキング"
+    output_fields:
+      - year
+      - japan_pct_filings
+      - top_applicants
+      - growth_rate
+      - popular_designation_countries
+
+  - id: "overseas-filing-costs"
+    description: "各国への特許出願コスト比較"
+    targets:
+      - search: "海外特許出願 費用 国別 比較"
+      - search: "patent filing cost by country comparison"
+      - search: "PCT出願 費用 内訳 翻訳費"
+    output_fields:
+      - country
+      - official_fee
+      - translation_cost
+      - attorney_fee
+      - total_estimated
+
+  - id: "overseas-filing-strategy"
+    description: "出願国の選び方・戦略データ"
+    targets:
+      - search: "海外特許 出願国 選び方 戦略"
+      - search: "patent filing country selection strategy"
+    output_fields:
+      - factor
+      - description
+      - data_sources
+
+output_path: "data/crawled/overseas-patent-filing.json"

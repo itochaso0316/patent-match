@@ -1,0 +1,59 @@
+# REQ-20260313-012: AI特許調査ツール比較データ
+# 記事: "AIツールで特許調査を効率化：ChatGPT・Claude活用術"
+
+request_id: "REQ-20260313-012"
+title: "AI特許調査ツール比較データ"
+created_at: "2026-03-13"
+created_by: "cowork"
+status: "pending"
+priority: "medium"
+deadline: "2026-04-14"
+
+target_article:
+  title: "AIツールで特許調査を効率化：ChatGPT・Claude活用術"
+  section: "tools"
+  publish_week: "2026-04-21"
+
+data_requirements:
+  - id: "ai-patent-tools"
+    description: "AI搭載の特許調査・分析ツール一覧"
+    targets:
+      - search: "AI 特許調査 ツール 2025 2026"
+      - search: "AI patent search tool comparison"
+      - search: "PatSnap AI"
+      - search: "Clarivate AI patent analytics"
+      - search: "IPlytics patent AI"
+    output_fields:
+      - tool_name
+      - provider
+      - url
+      - ai_features
+      - pricing_model
+      - target_users
+      - japanese_support
+
+  - id: "llm-patent-use-cases"
+    description: "ChatGPT/Claude等のLLMを特許業務に活用する具体例"
+    targets:
+      - search: "ChatGPT 特許 活用 事例 プロンプト"
+      - search: "Claude AI patent drafting analysis"
+      - search: "LLM 特許明細書 活用"
+    output_fields:
+      - use_case
+      - llm_model
+      - prompt_example
+      - effectiveness
+      - limitations
+
+  - id: "ai-patent-market"
+    description: "AIによる特許業務自動化の市場規模・動向"
+    targets:
+      - search: "AI patent analytics market size 2025 2026"
+      - search: "特許 AI 市場規模 弁理士 業務効率化"
+    output_fields:
+      - market_size
+      - growth_rate
+      - key_players
+      - adoption_trends
+
+output_path: "data/crawled/ai-patent-tools.json"

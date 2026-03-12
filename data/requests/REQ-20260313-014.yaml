@@ -1,0 +1,70 @@
+# REQ-20260313-014: 特許出願動向2025-2026（データ駆動記事用）
+# 記事: "【データで見る】日本の特許出願動向2025-2026：業種別・地域別分析"
+
+request_id: "REQ-20260313-014"
+title: "日本の特許出願動向2025-2026詳細データ"
+created_at: "2026-03-13"
+created_by: "cowork"
+status: "pending"
+priority: "high"
+deadline: "2026-04-14"
+
+target_article:
+  title: "【データで見る】日本の特許出願動向2025-2026：業種別・地域別分析"
+  section: "guide"
+  publish_week: "2026-04-21"
+
+data_requirements:
+  - id: "jpo-filing-trends"
+    description: "特許庁の出願件数推移（過去10年分、年次・月次）"
+    targets:
+      - url: "https://www.jpo.go.jp/resources/statistics/index.html"
+        data: "特許出願件数統計・年次報告"
+      - search: "特許出願件数 推移 2015 2024 2025 日本"
+      - search: "Japan patent filing statistics trend 2025"
+    output_fields:
+      - year
+      - total_filings
+      - domestic_filings
+      - foreign_filings
+      - pct_filings
+      - grant_rate
+
+  - id: "industry-breakdown"
+    description: "IPC分類別・業種別の出願動向"
+    targets:
+      - url: "https://www.jpo.go.jp/"
+        data: "IPC分類別出願件数（上位20分類）"
+      - search: "特許出願 分野別 IPC 2024 2025 増加"
+      - search: "patent filing by technology field Japan"
+    output_fields:
+      - ipc_code
+      - technology_field
+      - filing_count
+      - yoy_change
+      - top_applicants
+
+  - id: "regional-analysis"
+    description: "都道府県別・地域別の出願動向"
+    targets:
+      - search: "都道府県別 特許出願 件数 ランキング"
+      - search: "特許出願 地域別 東京 大阪 名古屋"
+    output_fields:
+      - prefecture
+      - filing_count
+      - per_capita
+      - major_applicants
+
+  - id: "international-comparison"
+    description: "主要国との出願件数比較"
+    targets:
+      - url: "https://www.wipo.int/ipstats/"
+        data: "WIPO統計：主要国PCT出願数"
+      - search: "world patent filing ranking 2024 2025 by country"
+    output_fields:
+      - country
+      - total_filings
+      - pct_filings
+      - growth_rate
+
+output_path: "data/crawled/japan-patent-trends-2025-2026.json"
