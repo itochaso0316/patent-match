@@ -1,0 +1,48 @@
+# ============================================================
+# データリクエスト: 特許マッチングプラットフォーム比較データ
+# ============================================================
+id: "REQ-20260313-006"
+status: "pending"
+priority: "high"
+requested_by: "cowork"
+requested_at: "2026-03-13T10:00:00+09:00"
+category: "competitor"
+title: "国内外の特許マッチングプラットフォーム比較データ"
+related_article: "特許マッチングプラットフォーム徹底比較2026年版"
+related_calendar_ref: "april_2026 week 2026-04-28"
+description: |
+  記事「特許マッチングプラットフォーム徹底比較2026年版」の作成用。
+  国内外の主要な特許売買・ライセンスマッチングサービスを網羅的に調査。
+targets:
+  - url: "https://ipmarket.jst.go.jp/"
+    scope: "JST知財活用支援サイト（仕組み・利用実績）"
+    extract: ["service_overview", "features", "usage_stats", "listing_count"]
+  - url: "https://www.inpit.go.jp/katsuyo/db/open/"
+    scope: "開放特許データベース"
+    extract: ["total_listings", "categories", "search_features", "how_to_use"]
+  - url: "https://www.yet2.com/"
+    scope: "yet2（国際プラットフォーム）"
+    extract: ["service_model", "pricing", "target_audience", "listed_technologies"]
+  - url: "https://www.ipnexus.com/"
+    scope: "IP Nexus"
+    extract: ["features", "pricing_model", "user_base"]
+  - url: "https://www.oceantomo.com/"
+    scope: "Ocean Tomo（特許オークション）"
+    extract: ["auction_model", "past_results", "minimum_lot_size"]
+  - search_queries:
+      - "特許マーケットプレイス 日本 一覧"
+      - "patent marketplace comparison 2026"
+      - "知的財産 取引 プラットフォーム"
+    extract: ["additional_platforms", "user_reviews", "market_size"]
+output_format: "json"
+output_path: "data/crawled/patent-marketplace-comparison.json"
+deadline: "2026-04-20"
+notes: |
+  比較表を作成するため、以下を各プラットフォームで統一的に取得:
+  - サービス名 / URL
+  - 運営元（日本or海外）
+  - 対象（売買/ライセンス/両方）
+  - 料金モデル（無料/手数料/月額）
+  - 掲載件数（概算）
+  - 対象分野
+  - 日本語対応の有無

@@ -1,0 +1,42 @@
+# ============================================================
+# データリクエスト: 大学TLO技術移転実績データ
+# ============================================================
+id: "REQ-20260313-009"
+status: "pending"
+priority: "medium"
+requested_by: "cowork"
+requested_at: "2026-03-13T10:00:00+09:00"
+category: "patent-data"
+title: "主要大学TLOの技術移転実績データ"
+related_article: "大学発特許の産学連携マッチング：TLOを活用した技術移転の進め方"
+related_calendar_ref: "april_2026 week 2026-04-14"
+description: |
+  記事「大学発特許の産学連携マッチング」の作成用。
+  主要大学のTLO（技術移転機関）のライセンス実績・特許保有数を調査。
+targets:
+  - url: "https://unitt.jp/"
+    scope: "UNITT（大学技術移転協議会）のデータ・レポート"
+    extract: ["annual_statistics", "licensing_revenue", "member_tlo_list"]
+  - url: "https://www.mext.go.jp/a_menu/shinkou/sangaku/"
+    scope: "文科省 産学連携の実績データ"
+    extract: ["technology_transfer_stats", "patent_filings_by_university", "licensing_income"]
+  - search_queries:
+      - "大学 TLO ランキング 技術移転 実績"
+      - "東京大学TLO 特許 ライセンス実績"
+      - "大学発ベンチャー 特許 活用事例"
+    extract: ["top_tlo_rankings", "success_stories", "best_practices"]
+  - url: "https://www.todaitlo.jp/"
+    scope: "東京大学TLO（東大TLO）"
+    extract: ["license_portfolio", "achievement_data"]
+  - url: "https://www.casti.co.jp/"
+    scope: "CASTI（科学技術振興機構の技術移転関連）"
+    extract: ["available_technologies", "matching_services"]
+output_format: "json"
+output_path: "data/crawled/university-tlo-data.json"
+deadline: "2026-04-07"
+notes: |
+  データ優先度:
+  1. 大学別の特許保有件数・ライセンス収入ランキング
+  2. 技術移転の成功事例（大学→企業の具体例）
+  3. TLOへのアクセス方法・相談手順
+  読者（企業側）が「どのTLOに連絡すればよいか」実践的に判断できる記事にしたい。

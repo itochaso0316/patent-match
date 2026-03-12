@@ -1,0 +1,39 @@
+# ============================================================
+# データリクエスト: 中国特許の最新統計・日本企業の出願動向
+# ============================================================
+id: "REQ-20260313-010"
+status: "pending"
+priority: "low"
+requested_by: "cowork"
+requested_at: "2026-03-13T10:00:00+09:00"
+category: "international"
+title: "中国特許の最新統計と日本企業の中国出願動向"
+related_article: "中国特許の読み方と活用：日本企業が知るべき中国知財の基礎"
+related_calendar_ref: "april_2026 week 2026-04-28"
+description: |
+  記事「中国特許の読み方と活用」の作成用。
+  CNIPA（中国国家知識産権局）の最新統計と日本企業の動向。
+targets:
+  - url: "https://english.cnipa.gov.cn/"
+    scope: "CNIPA公式統計（年次報告・月次速報）"
+    extract: ["total_applications", "total_grants", "by_field", "foreign_applications"]
+  - url: "https://www.jetro.go.jp/world/asia/cn/ip/"
+    scope: "JETRO中国知財情報"
+    extract: ["latest_policy_changes", "japan_china_ip_statistics", "enforcement_data"]
+  - search_queries:
+      - "中国 特許出願数 2025 統計"
+      - "日本企業 中国特許出願 動向"
+      - "CNIPA patent statistics 2025"
+    extract: ["yearly_trends", "japan_company_rankings", "technology_fields"]
+  - url: "https://www.wipo.int/ipstats/"
+    scope: "WIPO国際特許統計（PCT出願）"
+    extract: ["china_pct_filings", "japan_vs_china_comparison"]
+output_format: "json"
+output_path: "data/crawled/china-patent-statistics.json"
+deadline: "2026-04-20"
+notes: |
+  記事で必要なデータ:
+  - 中国の年間特許出願数（日本との比較）
+  - 日本企業による中国出願のトップ企業ランキング
+  - 中国特許検索の方法（CNIPA検索システムの使い方）
+  - 日中の知財制度の主な違い（審査期間、権利行使の実態等）

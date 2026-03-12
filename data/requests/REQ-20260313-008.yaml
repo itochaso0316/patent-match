@@ -1,0 +1,40 @@
+# ============================================================
+# データリクエスト: 知財ファンド・IP投資の事例データ
+# ============================================================
+id: "REQ-20260313-008"
+status: "pending"
+priority: "medium"
+requested_by: "cowork"
+requested_at: "2026-03-13T10:00:00+09:00"
+category: "market"
+title: "知財ファンドとIP投資の事例・実績データ"
+related_article: "知財ファンドとは？投資家が注目する特許投資の仕組み"
+related_calendar_ref: "april_2026 week 2026-04-07"
+description: |
+  記事「知財ファンドとは？投資家が注目する特許投資の仕組み」の作成用。
+  日本および海外の知財ファンド事例、運用実績、市場規模を調査。
+targets:
+  - search_queries:
+      - "知財ファンド 日本 事例"
+      - "IP fund Japan investment"
+      - "patent monetization fund performance"
+      - "知的財産 投資ファンド 運用実績"
+      - "IP Bridge 知財ファンド"
+    extract: ["fund_names", "aum", "performance", "investment_strategy", "notable_deals"]
+  - url: "https://www.ipbridge.co.jp/"
+    scope: "IP Bridge（日本最大の知財ファンド）"
+    extract: ["company_overview", "fund_size", "portfolio", "business_model"]
+  - search_queries:
+      - "Intellectual Ventures patent fund"
+      - "Fortress Investment Group IP"
+      - "patent assertion entity fund"
+    extract: ["international_examples", "fund_structures", "returns"]
+output_format: "json"
+output_path: "data/crawled/ip-fund-landscape.json"
+deadline: "2026-03-30"
+notes: |
+  記事のポイント:
+  - 知財ファンドとは何か（PAE/NPEとの違い）
+  - 日本のIP Bridgeを軸に具体例を紹介
+  - 投資家から見た知財投資のリスク・リターン
+  - 特許保有者がファンドに特許を売るメリット

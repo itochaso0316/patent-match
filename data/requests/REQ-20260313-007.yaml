@@ -1,0 +1,41 @@
+# ============================================================
+# データリクエスト: 特許の価値評価・売却価格データ
+# ============================================================
+id: "REQ-20260313-007"
+status: "pending"
+priority: "high"
+requested_by: "cowork"
+requested_at: "2026-03-13T10:00:00+09:00"
+category: "market"
+title: "特許の価値評価手法と売却価格の実態データ"
+related_article: "特許の価値評価：休眠特許はいくらで売れるのか？"
+related_calendar_ref: "april_2026 week 2026-04-07"
+description: |
+  記事「特許の価値評価：休眠特許はいくらで売れるのか？」の作成用。
+  特許取引の実態価格データ、価値評価手法の解説資料を収集。
+targets:
+  - url: "https://www.oceantomo.com/"
+    scope: "過去のIPオークション結果・取引実績"
+    extract: ["auction_results", "average_price_ranges", "by_technology_field"]
+  - url: "https://www.jpo.go.jp/support/chusho/"
+    scope: "特許庁の知財価値評価に関する資料"
+    extract: ["valuation_methods", "guidelines", "case_studies"]
+  - url: "https://www.meti.go.jp/policy/intellectual_assets/"
+    scope: "経産省 知的資産経営の資料"
+    extract: ["ip_valuation_frameworks", "best_practices"]
+  - search_queries:
+      - "特許 売却価格 相場 日本"
+      - "休眠特許 価値評価 方法"
+      - "patent valuation methods cost income market"
+      - "IP transaction price range statistics"
+    extract: ["price_benchmarks", "valuation_formulas", "real_world_examples"]
+output_format: "json"
+output_path: "data/crawled/patent-valuation-data.json"
+deadline: "2026-03-30"
+notes: |
+  記事の核となるデータ:
+  - 特許1件あたりの平均売却価格（分野別）
+  - 3つの評価手法の比較（コストアプローチ/インカムアプローチ/マーケットアプローチ）
+  - 日本国内の特許取引事例（匿名OK、件数と価格帯）
+  - 「休眠特許」が実際にいくらで売れたかの事例
+  読者が「自分の特許はこのくらいの価値がある」と概算できるようにしたい。
