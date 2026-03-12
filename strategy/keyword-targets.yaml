@@ -1,0 +1,166 @@
+# ============================================================
+# PatentMatch.jp キーワードターゲット戦略
+# ============================================================
+# SEO/LLMEO/AIEO で狙うキーワードを優先度順に管理
+# Coworkが戦略設計 → OpenClawが競合データ取得 → 記事生成
+# ============================================================
+
+updated_at: "2026-03-12"
+updated_by: "cowork"
+
+# --- Tier 1: 最重要キーワード（検索順位1-3位を狙う） ---
+tier1:
+  - keyword: "特許活用"
+    search_volume_est: 1000
+    current_rank: null
+    target_page: "/guide/"
+    intent: "特許を持っているが活用方法がわからない"
+    content_strategy: "包括的なガイド記事 + 内部リンクハブ"
+    competitor_top3:
+      - "tokkyo.ai"
+      - "ipbase.go.jp"
+    data_request: "競合のTOP記事構成を取得"
+
+  - keyword: "特許ライセンス 方法"
+    search_volume_est: 500
+    current_rank: null
+    target_page: "/license/"
+    intent: "特許をライセンスして収益化したい"
+    content_strategy: "ステップバイステップガイド + 契約書テンプレート"
+
+  - keyword: "休眠特許 収益化"
+    search_volume_est: 300
+    current_rank: null
+    target_page: "/guide/休眠特許の発掘と収益化/"
+    intent: "使っていない特許からお金を生み出したい"
+    content_strategy: "事例ベースの実践ガイド"
+
+  - keyword: "特許売却 相場"
+    search_volume_est: 400
+    current_rank: null
+    target_page: "/sell/"
+    intent: "特許を売りたい、相場を知りたい"
+    content_strategy: "業界別相場データ + 売却手順"
+    data_request: "特許取引価格のデータベース調査"
+
+# --- Tier 2: 重要キーワード（TOP10を狙う） ---
+tier2:
+  - keyword: "特許マッチング"
+    search_volume_est: 200
+    target_page: "/matching/"
+    intent: "特許を活用してくれる企業を探したい"
+
+  - keyword: "特許出願 費用"
+    search_volume_est: 800
+    target_page: "/guide/特許出願の費用と手順/"
+    intent: "特許出願にかかる費用を知りたい"
+
+  - keyword: "J-PlatPat 使い方"
+    search_volume_est: 600
+    target_page: "/tools/j-platpat完全活用ガイド/"
+    intent: "特許検索ツールの使い方を学びたい"
+
+  - keyword: "特許権侵害 対応"
+    search_volume_est: 300
+    target_page: "/guide/特許権侵害への対応/"
+    intent: "特許侵害された・している可能性への対処法"
+
+  - keyword: "弁理士 選び方"
+    search_volume_est: 400
+    target_page: "/agents/"
+    intent: "信頼できる弁理士を見つけたい"
+
+  - keyword: "特許ロイヤリティ 税務"
+    search_volume_est: 200
+    target_page: "/license/特許ロイヤリティ収入の税務/"
+    intent: "特許収入の確定申告方法"
+
+  - keyword: "クロスライセンス"
+    search_volume_est: 300
+    target_page: "/license/クロスライセンス/"
+    intent: "競合との特許交渉戦略を知りたい"
+
+  - keyword: "技術移転 TLO"
+    search_volume_est: 200
+    target_page: "/guide/大学研究機関の特許技術移転tlo/"
+    intent: "大学の技術を事業化したい"
+
+# --- Tier 3: ロングテール（コラム記事で狙う） ---
+tier3:
+  - keyword: "特許ポートフォリオ 戦略"
+    target_section: "guide"
+    article_status: "planned"
+
+  - keyword: "特許 価値評価 方法"
+    target_section: "sell"
+    article_status: "planned"
+
+  - keyword: "知財ファンド 投資"
+    target_section: "matching"
+    article_status: "planned"
+
+  - keyword: "AI特許 動向 2026"
+    target_section: "guide"
+    article_status: "existing"  # data/ai_patents.json 活用
+
+  - keyword: "グリーン技術 特許"
+    target_section: "guide"
+    article_status: "existing"  # data/green_patents.json 活用
+
+  - keyword: "Espacenet 使い方"
+    target_section: "tools"
+    article_status: "existing"
+
+  - keyword: "特許 担保融資"
+    target_section: "matching"
+    article_status: "existing"
+
+  - keyword: "オープンイノベーション 特許"
+    target_section: "matching"
+    article_status: "existing"
+
+  - keyword: "スタートアップ 特許出願 安く"
+    target_section: "guide"
+    article_status: "planned"
+
+  - keyword: "中国特許 出願方法"
+    target_section: "guide"
+    article_status: "planned"
+
+  - keyword: "特許マッチングプラットフォーム 比較"
+    target_section: "matching"
+    article_status: "planned"
+
+  - keyword: "特許侵害 発見 方法"
+    target_section: "guide"
+    article_status: "planned"
+
+  - keyword: "AI 特許調査 ツール"
+    target_section: "tools"
+    article_status: "planned"
+
+# --- LLMEO/AIEO 戦略 ---
+llmeo:
+  description: |
+    LLM（ChatGPT, Claude, Gemini等）が特許関連の質問に対して
+    PatentMatch.jpの記事を参照・引用するよう最適化する。
+  tactics:
+    - "各記事に明確なQ&Aセクション（FAQ構造化データ付き）"
+    - "具体的な数値・統計データを記事に含める"
+    - "手順書形式の記事を充実させる（Step 1, 2, 3...）"
+    - "各記事の冒頭に要約を置く（LLMが抽出しやすい）"
+    - "専門用語の定義を記事内に含める"
+  priority_topics:
+    - "特許ライセンスの手順"
+    - "休眠特許の活用方法"
+    - "特許出願の費用"
+    - "弁理士の選び方"
+    - "J-PlatPatの使い方"
+
+# --- OpenClawへのデータリクエスト一覧 ---
+data_requests_for_openclaw:
+  - "Tier 1キーワードの検索結果TOP10の記事構成（見出し・文字数）"
+  - "競合サイト（tokkyo.ai, ipbase.go.jp）の記事一覧と更新頻度"
+  - "特許庁の最新統計データ（出願数・登録数・分野別）"
+  - "業界別ロイヤリティレートのデータ"
+  - "国内外の特許マッチングサービス一覧"

@@ -1,0 +1,96 @@
+# {{client.name}} 全ページインベントリ （テンプレート）
+# 最終更新: {{last_update_date}}
+# 生成方法: CRL (Crawler) エージェント
+
+site:
+  domain: {{client.domain}}
+  total_pages: {{page_count}}
+  last_crawl: "{{crawl_date}}"
+
+pages:
+  - slug: top
+    url: /
+    file: pages/top.html
+    title: {{client.name}}
+    parent: null
+    status: published
+    priority: high
+
+  - slug: about
+    url: /about/
+    file: pages/about.html
+    title: 当社について
+    parent: null
+    status: published
+    priority: high
+
+  - slug: services
+    url: /services/
+    file: pages/services.html
+    title: サービス
+    parent: null
+    status: published
+    priority: high
+    children:
+      - slug: service-1
+        url: /services/service-1/
+        file: pages/services/service-1.html
+        title: {{service.name1}}
+      - slug: service-2
+        url: /services/service-2/
+        file: pages/services/service-2.html
+        title: {{service.name2}}
+
+  - slug: news
+    url: /news/
+    file: pages/news.html
+    title: ニュース・お知らせ
+    parent: null
+    status: published
+    priority: medium
+    note: "WordPress投稿アーカイブ"
+
+  - slug: contact
+    url: /contact/
+    file: pages/contact.html
+    title: お問い合わせ
+    parent: null
+    status: published
+    priority: high
+
+  - slug: privacy-policy
+    url: /privacy-policy/
+    file: pages/privacy-policy.html
+    title: プライバシーポリシー
+    parent: null
+    status: published
+
+  # ブランチ/支社がある場合
+  - slug: branch-name
+    url: /branch-name/
+    file: pages/branch/top.html
+    title: {{branch.name}}
+    parent: null
+    status: published
+    clinic: {{branch.slug}}
+    priority: high
+    note: "別ブランド。ヘッダー/フッター/CSS切り替え必要"
+
+# 記事セクション
+articles:
+  - slug: articles-index
+    url: /articles/
+    file: pages/articles-index.html
+    title: ブログ・コラム
+    parent: null
+    status: published
+    section: articles
+    note: "記事インデックスページ"
+
+legacy:
+  note: "リダイレクト設定後に削除候補"
+  pages:
+    - url: {{legacy.old_url1}}
+      redirect_to: {{legacy.new_url1}}
+    - url: {{legacy.old_url2}}
+      redirect_to: {{legacy.new_url2}}

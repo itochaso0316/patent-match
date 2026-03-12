@@ -1,0 +1,92 @@
+# SEO ターゲット設定 — {{client.name}} （テンプレート）
+# AHR (SEO Ahrefs Analyzer) エージェントが参照する設定ファイル
+
+site:
+  domain: {{client.domain}}
+  name: {{client.name}}
+
+# ============================
+# 主要競合
+# ============================
+competitors:
+  # --- 全国・大手競合 ---
+  - domain: {{competitor.domain1}}
+    name: {{competitor.name1}}
+    note: {{competitor.note1}}
+    area: {{competitor.area1}}
+    category: {{competitor.categories1}}
+
+  - domain: {{competitor.domain2}}
+    name: {{competitor.name2}}
+    note: {{competitor.note2}}
+    area: {{competitor.area2}}
+    category: {{competitor.categories2}}
+
+  # --- 地域競合 ---
+  - domain: {{regional_competitor.domain1}}
+    name: {{regional_competitor.name1}}
+    note: {{regional_competitor.note1}}
+    area: {{regional_competitor.area1}}
+    category: {{regional_competitor.categories1}}
+
+# ============================
+# ターゲットキーワード（優先度順）
+# ============================
+target_keywords:
+  # --- Tier 1: 最重要KW（順位1-3位を狙う）---
+  tier1:
+    - keyword: "{{seo.tier1_kw1}}"
+      current_page: {{seo.tier1_page1}}
+      intent: {{seo.tier1_intent1}}
+      brand_angle: {{seo.tier1_angle1}}
+
+    - keyword: "{{seo.tier1_kw2}}"
+      current_page: {{seo.tier1_page2}}
+      intent: {{seo.tier1_intent2}}
+      brand_angle: {{seo.tier1_angle2}}
+
+  # --- Tier 2: 重要KW（TOP10を狙う）---
+  tier2:
+    - keyword: "{{seo.tier2_kw1}}"
+      current_page: {{seo.tier2_page1}}
+      intent: {{seo.tier2_intent1}}
+      brand_angle: {{seo.tier2_angle1}}
+
+    - keyword: "{{seo.tier2_kw2}}"
+      current_page: {{seo.tier2_page2}}
+      intent: {{seo.tier2_intent2}}
+      brand_angle: {{seo.tier2_angle2}}
+
+  # --- Tier 3: ロングテール（コンテンツで狙う）---
+  tier3:
+    - keyword: "{{seo.tier3_kw1}}"
+      current_page: null
+      intent: {{seo.tier3_intent1}}
+      brand_angle: {{seo.tier3_angle1}}
+
+# ============================
+# データファイルパス
+# ============================
+data_paths:
+  base_dir: data/ahrefs/
+  organic_self: organic-keywords-{{client.slug}}.csv
+  organic_competitors:
+    - organic-keywords-{{competitor.slug1}}.csv
+  content_gap: content-gap.csv
+  backlinks: backlinks-{{client.slug}}.csv
+  keyword_ideas: keyword-ideas.csv
+  rank_history_dir: rank-history/
+
+# ============================
+# 分析設定
+# ============================
+analysis:
+  # クイックウィンの定義: 現在11-20位のKW
+  quickwin_range: [11, 20]
+  # KD上限（これ以下のKWを優先）
+  max_kd_priority: 40
+  # 最低検索ボリューム（これ以下は無視）
+  min_volume: 50
+  # 順位変動アラート閾値
+  rank_drop_alert: 5
+  rank_rise_note: 3

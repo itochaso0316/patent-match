@@ -1,0 +1,193 @@
+# ============================================================
+# PatentMatch.jp コンテンツカレンダー 2026年Q2
+# ============================================================
+# Cowork（戦略立案）→ OpenClaw（データ取得）→ Cowork（記事生成）
+# ============================================================
+
+version: "1.0"
+period: "2026-Q2"
+updated_by: "cowork"
+updated_at: "2026-03-12"
+
+# --- 全体方針 ---
+strategy:
+  mission: "特許活用の実践情報で日本No.1メディアを目指す"
+  target_audience:
+    primary: "中小企業の経営者・知財担当者"
+    secondary: "大学研究者・起業家"
+    tertiary: "弁理士・知財コンサルタント"
+  content_pillars:
+    - id: "fundamentals"
+      name: "特許の基礎知識"
+      goal: "特許初心者が最初に読むサイトになる"
+      target_section: "guide"
+    - id: "monetization"
+      name: "特許の収益化"
+      goal: "休眠特許の活用方法を具体的に示す"
+      target_section: "license"
+    - id: "market"
+      name: "特許市場の動向"
+      goal: "最新の特許データで読者の意思決定を支援"
+      target_section: "matching"
+    - id: "practical"
+      name: "実務ノウハウ"
+      goal: "すぐに使える手順書・チェックリスト"
+      target_section: "tools"
+
+  monthly_target:
+    new_articles: 8
+    updated_articles: 4
+    data_driven_articles: 2  # OpenClawデータ活用記事
+
+# --- 3月後半（残り） ---
+march_2026:
+  - week: "2026-03-16"
+    articles:
+      - title: "特許ポートフォリオ戦略：中小企業が持つべき特許の数と質"
+        section: "guide"
+        status: "planned"
+        keywords: ["特許ポートフォリオ", "特許戦略", "中小企業"]
+        data_needed:
+          - type: "patent-data"
+            description: "中小企業の平均特許保有数（業種別）"
+            request_id: "REQ-20260312-002"
+        assigned_to: "cowork"
+        priority: "high"
+
+      - title: "2026年注目の特許技術トレンド：AI・量子・バイオの最前線"
+        section: "guide"
+        status: "planned"
+        keywords: ["特許トレンド 2026", "AI特許", "量子コンピュータ特許"]
+        data_needed:
+          - type: "patent-trend"
+            description: "2025-2026年のIPC分類別出願トレンド"
+            request_id: "REQ-20260312-003"
+          - type: "patent-data"
+            description: "AI/量子/バイオ分野の特許出願数推移"
+            source: "data/ai_patents.json + OpenClawクロール"
+        assigned_to: "cowork"
+        priority: "high"
+
+  - week: "2026-03-23"
+    articles:
+      - title: "特許ライセンス料の相場：業界別ロイヤリティレートの実態"
+        section: "license"
+        status: "planned"
+        keywords: ["特許ライセンス料 相場", "ロイヤリティレート"]
+        data_needed:
+          - type: "market"
+            description: "業界別ロイヤリティレートのデータ（AUTM、ktMINE等）"
+            request_id: "REQ-20260312-004"
+        assigned_to: "cowork"
+        priority: "high"
+
+      - title: "スタートアップのための特許出願ガイド：費用を抑えて権利化する方法"
+        section: "guide"
+        status: "planned"
+        keywords: ["スタートアップ 特許", "特許出願 費用"]
+        data_needed:
+          - type: "government"
+            description: "中小企業・スタートアップ向け特許費用減免制度の最新情報"
+            request_id: "REQ-20260312-005"
+        assigned_to: "cowork"
+        priority: "medium"
+
+# --- 4月 ---
+april_2026:
+  - week: "2026-04-07"
+    articles:
+      - title: "特許の価値評価：休眠特許はいくらで売れるのか？"
+        section: "sell"
+        status: "planned"
+        keywords: ["特許 価値評価", "特許 売却価格", "休眠特許 価値"]
+        data_needed:
+          - type: "market"
+            description: "特許取引価格のデータ（Ocean Tomo、IP Marketplace等）"
+        assigned_to: "cowork"
+        priority: "high"
+
+      - title: "知財ファンドとは？投資家が注目する特許投資の仕組み"
+        section: "matching"
+        status: "planned"
+        keywords: ["知財ファンド", "特許投資", "IP投資"]
+        data_needed:
+          - type: "market"
+            description: "知財ファンドの事例・運用実績データ"
+        assigned_to: "cowork"
+        priority: "medium"
+
+  - week: "2026-04-14"
+    articles:
+      - title: "特許侵害の発見方法：自社特許が使われていないかチェックする実践テクニック"
+        section: "guide"
+        status: "planned"
+        keywords: ["特許侵害 発見", "特許侵害 調査"]
+        assigned_to: "cowork"
+        priority: "high"
+
+      - title: "大学発特許の産学連携マッチング：TLOを活用した技術移転の進め方"
+        section: "matching"
+        status: "planned"
+        keywords: ["大学 特許 マッチング", "TLO 技術移転"]
+        data_needed:
+          - type: "patent-data"
+            description: "主要大学TLOの技術移転実績データ"
+        assigned_to: "cowork"
+        priority: "medium"
+
+  - week: "2026-04-21"
+    articles:
+      - title: "【データで見る】日本の特許出願動向2025-2026：業種別・地域別分析"
+        section: "guide"
+        status: "planned"
+        keywords: ["特許出願 動向", "特許統計 2026"]
+        data_needed:
+          - type: "patent-data"
+            description: "特許庁年次報告書のデータ + BigQuery最新データ"
+            source: "openclaw-autonomous"
+        assigned_to: "openclaw-cowork"  # OpenClawデータ駆動
+        priority: "high"
+
+      - title: "AIツールで特許調査を効率化：ChatGPT・Claude活用術"
+        section: "tools"
+        status: "planned"
+        keywords: ["AI 特許調査", "ChatGPT 特許", "Claude 特許"]
+        assigned_to: "cowork"
+        priority: "medium"
+
+  - week: "2026-04-28"
+    articles:
+      - title: "中国特許の読み方と活用：日本企業が知るべき中国知財の基礎"
+        section: "guide"
+        status: "planned"
+        keywords: ["中国特許", "中国 知財"]
+        data_needed:
+          - type: "international"
+            description: "中国特許出願の最新統計・日本企業の出願動向"
+        assigned_to: "cowork"
+        priority: "low"
+
+      - title: "特許マッチングプラットフォーム徹底比較2026年版"
+        section: "matching"
+        status: "planned"
+        keywords: ["特許マッチング プラットフォーム", "特許 マーケットプレイス"]
+        data_needed:
+          - type: "competitor"
+            description: "国内外の特許マッチングサービス一覧・機能比較"
+            request_id: "REQ-20260312-006"
+        assigned_to: "cowork"
+        priority: "high"
+
+# --- OpenClawデータ駆動記事（自主発見ベース） ---
+openclaw_driven:
+  description: |
+    OpenClawが自主的に発見したデータに基づく記事。
+    data/openclaw/ に新しいファイルが追加されたら、
+    Coworkがレビューして記事化を判断する。
+  expected_per_month: 2
+  triggers:
+    - "新しい特許法改正のニュース"
+    - "競合サイトの大型コンテンツ追加"
+    - "特許出願数の急増・急減トレンド"
+    - "政府の新しい知財支援施策"
+    - "注目の特許訴訟ニュース"

@@ -1,0 +1,181 @@
+# ============================================================
+# OpenClaw 自律クロール設定
+# ============================================================
+# OpenClaw（Mac mini）はこの設定に基づいて自主的にデータを収集する。
+# Coworkが strategy/ や data/requests/ を更新したら、
+# OpenClawはそれも参照して優先度を調整する。
+# ============================================================
+
+version: "1.0"
+last_updated: "2026-03-12"
+
+# --- 基本設定 ---
+general:
+  crawl_interval: "daily"     # daily / twice-daily / hourly
+  max_pages_per_run: 100
+  respect_robots_txt: true
+  user_agent: "OpenClaw/1.0 (PatentMatch.jp research crawler)"
+  output_dir: "data/openclaw/"
+  request_dir: "data/requests/"
+  git_auto_push: true
+  branch_prefix: "data/crawl-"
+
+# --- 自主クロール対象 ---
+autonomous_crawl:
+
+  # 1. 特許庁・INPIT公式情報
+  patent_office:
+    enabled: true
+    frequency: "daily"
+    priority: "high"
+    targets:
+      - name: "特許庁ニュースリリース"
+        url: "https://www.jpo.go.jp/news/index.html"
+        type: "news-feed"
+        extract: ["title", "date", "url", "summary"]
+      - name: "特許庁統計情報"
+        url: "https://www.jpo.go.jp/resources/statistics/index.html"
+        type: "data-page"
+        extract: ["title", "url", "file_urls"]
+      - name: "INPIT知財総合支援窓口"
+        url: "https://chizai-portal.inpit.go.jp/"
+        type: "portal"
+        extract: ["news", "events", "seminars"]
+    output_category: "regulation"
+
+  # 2. 特許データベース（J-PlatPat等）
+  patent_databases:
+    enabled: true
+    frequency: "weekly"
+    priority: "high"
+    targets:
+      - name: "J-PlatPat トレンド"
+        url: "https://www.j-platpat.inpit.go.jp/"
+        type: "search"
+        queries:
+          - "AI 人工知能"
+          - "再生可能エネルギー"
+          - "バイオテクノロジー"
+          - "量子コンピュータ"
+          - "半導体"
+        extract: ["patent_count", "top_applicants", "trend_data"]
+      - name: "Google Patents 日本特許"
+        url: "https://patents.google.com/?country=JP&after=priority:20250101"
+        type: "search"
+        extract: ["recent_patents", "trending_technologies"]
+    output_category: "patent-trend"
+
+  # 3. 競合サイト監視
+  competitors:
+    enabled: true
+    frequency: "twice-weekly"
+    priority: "medium"
+    targets:
+      - name: "tokkyo.ai"
+        url: "https://tokkyo.ai"
+        type: "blog-monitor"
+        extract: ["new_articles", "titles", "urls", "headings"]
+      - name: "IP BASE"
+        url: "https://ipbase.go.jp/learn/"
+        type: "blog-monitor"
+        extract: ["new_articles", "titles", "urls", "headings"]
+      - name: "知財タイムズ"
+        url: "https://chizai-times.com/"
+        type: "news-monitor"
+        extract: ["new_articles", "titles", "urls"]
+      - name: "IP Force"
+        url: "https://ipforce.jp/"
+        type: "portal"
+        extract: ["news", "rankings"]
+    output_category: "competitor"
+
+  # 4. 特許関連ニュース・メディア
+  news_media:
+    enabled: true
+    frequency: "daily"
+    priority: "medium"
+    targets:
+      - name: "日経 知財ニュース"
+        url: "https://www.nikkei.com/"
+        type: "search"
+        keywords: ["特許", "知財", "ライセンス", "知的財産"]
+        extract: ["title", "url", "date", "snippet"]
+      - name: "PR TIMES 特許関連"
+        url: "https://prtimes.jp/"
+        type: "search"
+        keywords: ["特許取得", "特許出願", "ライセンス契約"]
+        extract: ["title", "url", "date", "company"]
+    output_category: "news"
+
+  # 5. 行政・助成金情報
+  government:
+    enabled: true
+    frequency: "weekly"
+    priority: "medium"
+    targets:
+      - name: "経産省 知財政策"
+        url: "https://www.meti.go.jp/policy/ipr/"
+        type: "policy-page"
+        extract: ["news", "reports", "guidelines"]
+      - name: "中小企業庁 支援施策"
+        url: "https://www.chusho.meti.go.jp/"
+        type: "search"
+        keywords: ["知財", "特許", "支援"]
+        extract: ["title", "url", "summary"]
+      - name: "NEDO 技術開発"
+        url: "https://www.nedo.go.jp/"
+        type: "search"
+        keywords: ["特許", "技術移転", "ライセンス"]
+        extract: ["title", "url", "summary"]
+    output_category: "government"
+
+  # 6. 海外特許動向
+  international:
+    enabled: true
+    frequency: "weekly"
+    priority: "low"
+    targets:
+      - name: "USPTO 統計"
+        url: "https://www.uspto.gov/dashboard/patents"
+        type: "data-page"
+        extract: ["stats", "trends"]
+      - name: "EPO 統計"
+        url: "https://www.epo.org/en/about-us/statistics"
+        type: "data-page"
+        extract: ["stats", "trends"]
+      - name: "WIPO IP Statistics"
+        url: "https://www.wipo.int/ipstats/en/"
+        type: "data-page"
+        extract: ["global_trends", "country_rankings"]
+    output_category: "international"
+
+# --- リクエスト処理設定 ---
+request_handling:
+  check_interval: "hourly"
+  auto_accept: true           # pending リクエストを自動で処理開始
+  max_concurrent: 3
+  retry_on_failure: 2
+  notify_on_complete: true    # 完了時にYAMLのstatusを更新
+
+# --- データ出力ルール ---
+output_rules:
+  format: "yaml"              # デフォルト出力形式
+  max_file_size_mb: 5
+  include_raw_html: false     # HTMLソースは保存しない
+  include_screenshots: false
+  summarize: true             # 取得データのサマリーを付与
+  suggest_articles: true      # 記事ネタの提案を自動生成
+
+# --- 記事提案ルール ---
+article_suggestions:
+  enabled: true
+  min_relevance: "medium"     # 記事提案する最低関連度
+  output_dir: "data/openclaw/"
+  format: |
+    suggested_articles:
+      - title: "提案タイトル"
+        section: "guide/license/sell/matching/tools/agents"
+        keywords: ["kw1", "kw2"]
+        data_source: "元データファイルパス"
+        urgency: "high/medium/low"
+        reason: "なぜこの記事が必要か"
