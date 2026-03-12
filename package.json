@@ -1,0 +1,14 @@
+{
+  "name": "patent-match",
+  "version": "1.0.0",
+  "description": "PatentMatch.jp - 特許活用・ライセンス・マッチング情報メディア",
+  "scripts": {
+    "build": "hugo --minify",
+    "serve": "hugo server -D",
+    "deploy": "hugo --minify && wrangler deploy",
+    "generate": "cd scripts && python3 generate_articles.py"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

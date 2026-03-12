@@ -1,0 +1,52 @@
+baseURL = "https://patent-match.jp"
+title = "PatentMatch.jp | 特許活用・ライセンス・マッチング情報"
+languageCode = "ja"
+defaultContentLanguage = "ja"
+theme = "ananke"
+enableRobotsTXT = true
+enableEmoji = true
+buildFuture = true
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  description = "眠っている特許を収益に。特許ライセンス・売却・マッチングの実践情報を日本語で。中小企業・研究者・起業家向け。"
+  author = "PatentMatch編集部"
+  favicon = "/favicon.ico"
+  site_logo = ""
+  background_color_class = "bg-near-white"
+  body_classes = "avenir bg-near-white"
+  post_content_classes = "avenir"
+  featured_image = "/images/patent-hero.jpg"
+  recent_posts_number = 5
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[menu]
+  [[menu.main]]
+    name = "特許活用ガイド"
+    url = "/guide/"
+    weight = 1
+  [[menu.main]]
+    name = "ライセンス実務"
+    url = "/license/"
+    weight = 2
+  [[menu.main]]
+    name = "特許売却・譲渡"
+    url = "/sell/"
+    weight = 3
+  [[menu.main]]
+    name = "マッチング"
+    url = "/matching/"
+    weight = 4
+  [[menu.main]]
+    name = "調査ツール"
+    url = "/tools/"
+    weight = 5
+  [[menu.main]]
+    name = "エージェント"
+    url = "/agents/"
+    weight = 6
