@@ -8,7 +8,7 @@
 
     <div class="flex flex-wrap gap-3">
       {{ range .Pages }}
-      <a href="{{ .Permalink }}"
+      <a href="{{ .RelPermalink }}"
          class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg
                 hover:border-patent-blue-300 hover:bg-patent-blue-50 transition-all text-sm">
         <span class="text-gray-700">{{ .Title }}</span>

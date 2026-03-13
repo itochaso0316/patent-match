@@ -12,7 +12,7 @@
     {{ with index .Site.Params.sections .Section }}
       {{ $sectionTitle = .title }}
     {{ end }}
-    <a href="{{ .Parent.Permalink }}">{{ if $sectionTitle }}{{ $sectionTitle }}{{ else }}{{ .Parent.Title }}{{ end }}</a>
+    <a href="{{ .Parent.RelPermalink }}">{{ if $sectionTitle }}{{ $sectionTitle }}{{ else }}{{ .Parent.Title }}{{ end }}</a>
     <span class="breadcrumb-separator" aria-hidden="true">
       <svg class="w-4 h-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
