@@ -61,7 +61,6 @@ QUERIES = {
         UNNEST(ipc) as ipc
         WHERE country_code = 'JP'
           AND grant_date > 20200101
-          AND ARRAY_LENGTH(ipc) > 0
         GROUP BY ipc_code, category
         ORDER BY patent_count DESC
         LIMIT 30
@@ -70,14 +69,14 @@ QUERIES = {
     # 出願人別 特許保有数ランキング（大企業）
     "top_assignees": """
         SELECT
-            assignee.name as company_name,
+            assignee as company_name,
             COUNT(*) as patent_count
         FROM `patents-public-data.patents.publications`,
         UNNEST(assignee) as assignee
         WHERE country_code = 'JP'
           AND grant_date > 20200101
-          AND assignee.name IS NOT NULL
-          AND assignee.name != ''
+          AND assignee IS NOT NULL
+          AND assignee != ''
         GROUP BY company_name
         ORDER BY patent_count DESC
         LIMIT 20

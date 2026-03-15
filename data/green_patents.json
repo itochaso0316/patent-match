@@ -1,5 +1,12 @@
 [
   {
+    "publication_number": "JP-7755896-B2",
+    "title": "流量調整及び圧力安定化機能を備えた水素供給用組合せ弁",
+    "abstract": null,
+    "filing_date": 20230110,
+    "grant_date": 20251017
+  },
+  {
     "publication_number": "JP-7755975-B2",
     "title": "液式鉛蓄電池",
     "abstract": null,
@@ -21,31 +28,10 @@
     "grant_date": 20251017
   },
   {
-    "publication_number": "JP-7755896-B2",
-    "title": "流量調整及び圧力安定化機能を備えた水素供給用組合せ弁",
-    "abstract": null,
-    "filing_date": 20230110,
-    "grant_date": 20251017
-  },
-  {
     "publication_number": "JP-7755772-B2",
     "title": "化合物又はその塩及びその製造方法、組成物、過酸化水素除去剤、並びに、細胞毒性抑制剤",
     "abstract": null,
     "filing_date": 20240612,
-    "grant_date": 20251016
-  },
-  {
-    "publication_number": "JP-7755769-B1",
-    "title": "太陽光発電装置",
-    "abstract": "【課題】低コストで防露性が高く、曲げた状態であっても薄板ガラスの割れを抑えることができる太陽光発電装置を提供する。【解決手段】発電部を有する太陽光発電装置であって、前記発電部の上部又は下部の少なくともいずれかに複数の薄板ガラスを有し、複数の前記薄板ガラスは、前記太陽光発電装置を上面又は下面から平面視した時に重複部を有し、前記重複部を構成する複数の前記薄板ガラスは、互いに接触せず、前記重複部における複数の前記薄板ガラス間の少なくとも一部に弾性体を有することを特徴とする太陽光発電装置。【選択図】図１",
-    "filing_date": 20250604,
-    "grant_date": 20251016
-  },
-  {
-    "publication_number": "JP-7755535-B2",
-    "title": "サーメット層、及び、水蒸気電解用水素極",
-    "abstract": null,
-    "filing_date": 20220329,
     "grant_date": 20251016
   },
   {
@@ -56,10 +42,24 @@
     "grant_date": 20251016
   },
   {
+    "publication_number": "JP-7755769-B1",
+    "title": "太陽光発電装置",
+    "abstract": "【課題】低コストで防露性が高く、曲げた状態であっても薄板ガラスの割れを抑えることができる太陽光発電装置を提供する。【解決手段】発電部を有する太陽光発電装置であって、前記発電部の上部又は下部の少なくともいずれかに複数の薄板ガラスを有し、複数の前記薄板ガラスは、前記太陽光発電装置を上面又は下面から平面視した時に重複部を有し、前記重複部を構成する複数の前記薄板ガラスは、互いに接触せず、前記重複部における複数の前記薄板ガラス間の少なくとも一部に弾性体を有することを特徴とする太陽光発電装置。【選択図】図１",
+    "filing_date": 20250604,
+    "grant_date": 20251016
+  },
+  {
     "publication_number": "JP-7755608-B2",
     "title": "蓄電デバイス",
     "abstract": null,
     "filing_date": 20230209,
+    "grant_date": 20251016
+  },
+  {
+    "publication_number": "JP-7755535-B2",
+    "title": "サーメット層、及び、水蒸気電解用水素極",
+    "abstract": null,
+    "filing_date": 20220329,
     "grant_date": 20251016
   },
   {
@@ -70,45 +70,24 @@
     "grant_date": 20251016
   },
   {
-    "publication_number": "JP-7754355-B2",
-    "title": "バックアップ用の蓄電装置の制御方法、及び、車両の電源システム",
+    "publication_number": "JP-7754155-B2",
+    "title": "殺菌用過酸化水素水溶液並びにこれを用いた対象物の殺菌方法および殺菌された対象物の製造方法",
     "abstract": null,
-    "filing_date": 20250214,
+    "filing_date": 20220225,
     "grant_date": 20251015
   },
   {
-    "publication_number": "JP-7754272-B2",
-    "title": "蓄電デバイスの製造方法、および、蓄電デバイス",
+    "publication_number": "JP-7753641-B2",
+    "title": "電極材料、電極、蓄電素子、及び電極材料の製造方法",
     "abstract": null,
-    "filing_date": 20241226,
+    "filing_date": 20210217,
     "grant_date": 20251015
   },
   {
-    "publication_number": "JP-7754201-B2",
-    "title": "蓄電モジュール製造装置及び蓄電モジュール製造方法",
+    "publication_number": "JP-7754948-B2",
+    "title": "超高純度フッ化水素の精製方法および装置",
     "abstract": null,
-    "filing_date": 20220930,
-    "grant_date": 20251015
-  },
-  {
-    "publication_number": "JP-7753988-B2",
-    "title": "蓄電デバイス用外装材、その製造方法、及び蓄電デバイス",
-    "abstract": null,
-    "filing_date": 20220609,
-    "grant_date": 20251015
-  },
-  {
-    "publication_number": "JP-7754108-B2",
-    "title": "鉛蓄電池",
-    "abstract": null,
-    "filing_date": 20211028,
-    "grant_date": 20251015
-  },
-  {
-    "publication_number": "JP-7754373-B2",
-    "title": "高圧水素環境用マルテンサイト系ステンレス鋼",
-    "abstract": null,
-    "filing_date": 20240930,
+    "filing_date": 20220127,
     "grant_date": 20251015
   },
   {
@@ -119,6 +98,13 @@
     "grant_date": 20251015
   },
   {
+    "publication_number": "JP-7753988-B2",
+    "title": "蓄電デバイス用外装材、その製造方法、及び蓄電デバイス",
+    "abstract": null,
+    "filing_date": 20220609,
+    "grant_date": 20251015
+  },
+  {
     "publication_number": "JP-7753684-B2",
     "title": "鉛蓄電池用セパレータおよびそれを含む鉛蓄電池",
     "abstract": null,
@@ -126,10 +112,10 @@
     "grant_date": 20251015
   },
   {
-    "publication_number": "JP-7754155-B2",
-    "title": "殺菌用過酸化水素水溶液並びにこれを用いた対象物の殺菌方法および殺菌された対象物の製造方法",
+    "publication_number": "JP-7753711-B2",
+    "title": "蓄電装置",
     "abstract": null,
-    "filing_date": 20220225,
+    "filing_date": 20210730,
     "grant_date": 20251015
   },
   {
@@ -137,6 +123,20 @@
     "title": "非水電解質蓄電素子及びその製造方法",
     "abstract": null,
     "filing_date": 20210107,
+    "grant_date": 20251015
+  },
+  {
+    "publication_number": "JP-7754273-B2",
+    "title": "耐水素脆化特性に優れたラインパイプ用鋼管、その製造方法、ラインパイプ用鋼材およびその製造方法",
+    "abstract": null,
+    "filing_date": 20230928,
+    "grant_date": 20251015
+  },
+  {
+    "publication_number": "JP-7754135-B2",
+    "title": "蓄電システム",
+    "abstract": null,
+    "filing_date": 20230523,
     "grant_date": 20251015
   }
 ]

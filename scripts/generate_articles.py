@@ -23,7 +23,7 @@ CONTENT_DIR = REPO_DIR / "content"
 COST_FILE = REPO_DIR / "scripts" / "cost_tracker.json"
 GENERATED_FILE = REPO_DIR / "scripts" / "generated_articles.json"
 
-MODEL = "claude-sonnet-4-6"
+MODEL = "claude-haiku-3-5"
 COST_ALERT_USD = 10.0
 
 # Claude APIクライアント
